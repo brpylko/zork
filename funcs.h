@@ -3,18 +3,6 @@
 #ifndef FUNCS_H
 #define FUNCS_H
 
-/* If __STDC__ is not defined, don't use function prototypes, void, or
- * const.
- */
-
-#ifdef __STDC__
-#define P(x) x
-#else
-#define P(x) ()
-#define void int
-#define const
-#endif
-
 /* Try to guess whether we need "rb" to open files in binary mode.
  * If this is unix, it doesn't matter.  Otherwise, assume that if
  * __STDC__ is defined we can use "rb".  Otherwise, assume that we
@@ -34,9 +22,6 @@
 #endif /* ! __STDC__ */
 #endif /* ! unix */
 
-typedef int integer;
-typedef int logical;
-
 #define TRUE_ (1)
 #define FALSE_ (0)
 
@@ -44,92 +29,92 @@ typedef int logical;
 #define min(a,b) ((a) <= (b) ? (a) : (b))
 #define max(a,b) ((a) >= (b) ? (a) : (b))
 
-extern logical
-	protected P((void)),
-	wizard P((void));
+extern int
+	is_protected(),
+	wizard();
 
 extern void
-	more_init P((void)),
-	more_output P((const char *)),
-	more_input P((void));
+	more_init(),
+	more_output(const char *),
+	more_input();
 
 extern void
-	bug_ P((integer, integer)),
-	cevapp_ P((integer)),
-	cpgoto_ P((integer)),
-	cpinfo_ P((integer, integer)),
-	encryp_ P((const char *, char *)),
-	exit_ P((void)),
-	fightd_ P((void)),
-	game_ P((void)),
-	gdt_ P((void)),
-	gttime_ P((integer *)),
-	invent_ P((integer)),
-	itime_ P((integer *, integer *, integer *)), 
-	jigsup_ P((integer)),
-	newsta_ P((integer, integer, integer, integer, integer)),
-	orphan_ P((integer, integer, integer, integer, integer)),
-	princo_ P((integer, integer)),
-	princr_ P((logical, integer)),
-	rdline_ P((char *, integer)),
-	rspeak_ P((integer)),
-	rspsb2_ P((integer, integer, integer)),
-	rspsub_ P((integer, integer)),
-	rstrgm_ P((void)),
-	savegm_ P((void)),
-	score_ P((logical)),
-	scrupd_ P((integer)),
-	swordd_ P((void)),
-	thiefd_ P((void)),
-	valuac_ P((integer));
-extern integer
-	blow_ P((integer, integer, integer, logical, integer)),
-	fights_ P((integer, logical)),
-	fwim_ P((integer, integer, integer, integer, integer, logical)),
-	getobj_ P((integer, integer, integer)),
-	schlst_ P((integer, integer, integer, integer,  integer, integer)),
-	mrhere_ P((integer)),
-	oactor_ P((integer)),
-	rnd_ P((integer)),
-	robadv_ P((integer, integer, integer, integer)), 
-	robrm_ P((integer, integer, integer, integer, integer)),
-	sparse_ P((const integer *, integer, logical)),
-	vilstr_ P((integer)),
-	weight_ P((integer, integer, integer));
-extern logical
-	aappli_ P((integer)),
-	ballop_ P((integer)),
-	clockd_ P((void)),
-	cyclop_ P((integer)),
-	drop_ P((logical)),
-	findxt_ P((integer, integer)),
-	ghere_ P((integer, integer)),
-	init_ P((void)),
-	lightp_ P((integer)),
-	lit_ P((integer)),
-	moveto_ P((integer, integer)),
-	nobjs_ P((integer, integer)),
-	oappli_ P((integer, integer)),
-	objact_ P((void)),
-	opncls_ P((integer, integer, integer)),
-	parse_ P((char *, logical)),
-	prob_ P((integer, integer)),
-	put_ P((logical)),
-	rappli_ P((integer)),
-	rappl1_ P((integer)),
-	rappl2_ P((integer)),
-	rmdesc_ P((integer)),
-	sobjs_ P((integer, integer)),
-	sverbs_ P((integer)),
-	synmch_ P((void)),
-	take_ P((logical)),
-	thiefp_ P((integer)),
-	trollp_ P((integer)),
-	qempty_ P((integer)),
-	qhere_ P((integer, integer)),
-	vappli_ P((integer)),
-	walk_ P((void)),
-	winnin_ P((integer, integer)),
-	yesno_ P((integer, integer, integer));
+	bug_(int, int),
+	cevapp_(int),
+	cpgoto_(int),
+	cpinfo_(int, int),
+	encryp_(const char *, char *),
+	exit_(),
+	fightd_(),
+	game_(),
+	gdt_(),
+	gttime_(int *),
+	invent_(int),
+	itime_(int *, int *, int *), 
+	jigsup_(int),
+	newsta_(int, int, int, int, int),
+	orphan_(int, int, int, int, int),
+	princo_(int, int),
+	princr_(int, int),
+	rdline_(char *, int),
+	rspeak_(int),
+	rspsb2_(int, int, int),
+	rspsub_(int, int),
+	rstrgm_(),
+	savegm_(),
+	score_(int),
+	scrupd_(int),
+	swordd_(),
+	thiefd_(),
+	valuac_(int);
+extern int
+	blow_(int, int, int, int, int),
+	fights_(int, int),
+	fwim_(int, int, int, int, int, int),
+	getobj_(int, int, int),
+	schlst_(int, int, int, int,  int, int),
+	mrhere_(int),
+	oactor_(int),
+	rnd_(int),
+	robadv_(int, int, int, int), 
+	robrm_(int, int, int, int, int),
+	sparse_(const int *, int, int),
+	vilstr_(int),
+	weight_(int, int, int);
+extern int
+	aappli_(int),
+	ballop_(int),
+	clockd_(void),
+	cyclop_(int),
+	drop_(int),
+	findxt_(int, int),
+	ghere_(int, int),
+	init_(void),
+	lightp_(int),
+	lit_(int),
+	moveto_(int, int),
+	nobjs_(int, int),
+	oappli_(int, int),
+	objact_(void),
+	opncls_(int, int, int),
+	parse_(char *, int),
+	prob_(int, int),
+	put_(int),
+	rappli_(int),
+	rappl1_(int),
+	rappl2_(int),
+	rmdesc_(int),
+	sobjs_(int, int),
+	sverbs_(int),
+	synmch_(void),
+	take_(int),
+	thiefp_(int),
+	trollp_(int),
+	qempty_(int),
+	qhere_(int, int),
+	vappli_(int),
+	walk_(),
+	winnin_(int, int),
+	yesno_(int, int, int);
 
 #endif

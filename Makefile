@@ -18,16 +18,16 @@ MANDIR = /usr/share/man
 # more option 1: use the termcap routines.  On some systems the LIBS
 # variable may need to be set to -lcurses.  On some it may need to
 # be /usr/lib/termcap.o.  These options are commented out below.
-LIBS = -ltermcap
-TERMFLAG =
+#LIBS = -ltermcap
+#TERMFLAG =
 # LIBS = -lcurses
 # LIBS = /usr/lib/termcap.o
 
 # more option 2: use the terminfo routines.  On some systems the LIBS
 # variable needs to be -lcursesX, but probably all such systems support
 # the termcap routines (option 1) anyhow.
-# LIBS = -lcurses
-# TERMFLAG = -DMORE_TERMINFO
+LIBS = -lcurses
+TERMFLAG = -DMORE_TERMINFO
 
 # more option 3: assume all terminals have 24 rows
 # LIBS =
@@ -53,11 +53,13 @@ CFLAGS = -g #-static
 
 ##################################################################
 
+CPP = g++
+
 # Source files
-CSRC =	actors.c ballop.c clockr.c demons.c dgame.c dinit.c dmain.c\
-	dso1.c dso2.c dso3.c dso4.c dso5.c dso6.c dso7.c dsub.c dverb1.c\
-	dverb2.c gdt.c lightp.c local.c nobjs.c np.c np1.c np2.c np3.c\
-	nrooms.c objcts.c rooms.c sobjs.c supp.c sverbs.c verbs.c villns.c
+CSRC =	actors.cpp ballop.cpp clockr.cpp demons.cpp dgame.cpp dinit.cpp dmain.cpp\
+	dso1.cpp dso2.cpp dso3.cpp dso4.cpp dso5.cpp dso6.cpp dso7.cpp dsub.cpp dverb1.cpp\
+	dverb2.cpp gdt.cpp lightp.cpp local.cpp nobjs.cpp np.cpp np1.cpp np2.cpp np3.cpp\
+	nrooms.cpp objcts.cpp rooms.cpp sobjs.cpp supp.cpp sverbs.cpp verbs.cpp villns.cpp
 
 # Object files
 OBJS =	actors.o ballop.o clockr.o demons.o dgame.o dinit.o dmain.o\
@@ -65,8 +67,7 @@ OBJS =	actors.o ballop.o clockr.o demons.o dgame.o dinit.o dmain.o\
 	dverb2.o gdt.o lightp.o local.o nobjs.o np.o np1.o np2.o np3.o\
 	nrooms.o objcts.o rooms.o sobjs.o supp.o sverbs.o verbs.o villns.o
 
-dungeon: $(OBJS) dtextc.dat
-	$(CC) $(CFLAGS) -o zork $(OBJS) $(LIBS)
+default: dungeon
 
 install: zork dtextc.dat
 	mkdir -p $(BINDIR) $(LIBDIR) $(MANDIR)/man6
@@ -80,46 +81,8 @@ clean:
 dtextc.dat:
 	cat dtextc.uu1 dtextc.uu2 dtextc.uu3 dtextc.uu4 | uudecode
 
-dinit.o: dinit.c funcs.h vars.h
-	$(CC) $(CFLAGS) $(GDTFLAG) -DTEXTFILE=\"$(DATADIR)/dtextc.dat\" -c dinit.c
+%.o: %.cpp funcs.h vars.h
+	$(CPP) $(CFLAGS) $(GDTFLAG) -DTEXTFILE=\"$(DATADIR)/dtextc.dat\" -c $< -o $@
 
-dgame.o: dgame.c funcs.h vars.h
-	$(CC) $(CFLAGS) $(GDTFLAG) -c dgame.c
-
-gdt.o: gdt.c funcs.h vars.h
-	$(CC) $(CFLAGS) $(GDTFLAG) -c gdt.c
-
-local.o: local.c funcs.h vars.h
-	$(CC) $(CFLAGS) $(GDTFLAG) -c local.c
-
-supp.o: supp.c funcs.h vars.h
-	$(CC) $(CFLAGS) $(TERMFLAG) -c supp.c	
-
-actors.o: funcs.h vars.h
-ballop.o: funcs.h vars.h
-clockr.o: funcs.h vars.h
-demons.o: funcs.h vars.h
-dmain.o: funcs.h vars.h
-dso1.o: funcs.h vars.h
-dso2.o: funcs.h vars.h
-dso3.o: funcs.h vars.h
-dso4.o: funcs.h vars.h
-dso5.o: funcs.h vars.h
-dso6.o: funcs.h vars.h
-dso7.o: funcs.h vars.h
-dsub.o: funcs.h vars.h
-dverb1.o: funcs.h vars.h
-dverb2.o: funcs.h vars.h
-lightp.o: funcs.h vars.h
-nobjs.o: funcs.h vars.h
-np.o: funcs.h vars.h
-np1.o: funcs.h vars.h parse.h
-np2.o: funcs.h vars.h parse.h
-np3.o: funcs.h vars.h parse.h
-nrooms.o: funcs.h vars.h
-objcts.o: funcs.h vars.h
-rooms.o: funcs.h vars.h
-sobjs.o: funcs.h vars.h
-sverbs.o: funcs.h vars.h
-verbs.o: funcs.h vars.h
-villns.o: funcs.h vars.h
+dungeon: $(OBJS) dtextc.dat
+	$(CPP) $(CFLAGS) -o zork $(OBJS) $(LIBS)
