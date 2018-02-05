@@ -10,11 +10,10 @@
 #include "funcs.h"
 #include "vars.h"
 
-int main(int argc, char** argv)
-{
-    if (init_()) {
-	    game_();
-    }
-    exit_();
-    return 0;
+int main(int argc, char** argv) {
+	if (init_()) {
+		game_();
+	}
+	exit_();
+	return 0;
 }
