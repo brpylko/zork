@@ -1,5 +1,4 @@
 # Makefile for dungeon
-
 # Where to install the program
 BINDIR = /usr/games
 
@@ -45,7 +44,7 @@ TERMFLAG = -DMORE_TERMINFO
 GDTFLAG = -DALLOW_GDT
 
 # Compilation flags
-CFLAGS = -g #-static
+CXXFLAGS = -g $(GDTFLAG) -DTEXTFILE=\"$(DATADIR)/dtextc.dat\" #-static
 # On SCO Unix Development System 3.2.2a, the const type qualifier does
 # not work correctly when using cc.  The following line will cause it
 # to not be used and should be uncommented.
@@ -53,36 +52,26 @@ CFLAGS = -g #-static
 
 ##################################################################
 
-CPP = g++
+CXX = g++
 
-# Source files
-CSRC =	actors.cpp ballop.cpp clockr.cpp demons.cpp dgame.cpp dinit.cpp dmain.cpp\
-	dso1.cpp dso2.cpp dso3.cpp dso4.cpp dso5.cpp dso6.cpp dso7.cpp dsub.cpp dverb1.cpp\
-	dverb2.cpp gdt.cpp lightp.cpp local.cpp nobjs.cpp np.cpp np1.cpp np2.cpp np3.cpp\
-	nrooms.cpp objcts.cpp rooms.cpp sobjs.cpp supp.cpp sverbs.cpp verbs.cpp villns.cpp vars.cpp parse.cpp
-
-# Object files
-OBJS =	actors.o ballop.o clockr.o demons.o dgame.o dinit.o dmain.o\
-	dso1.o dso2.o dso3.o dso4.o dso5.o dso6.o dso7.o dsub.o dverb1.o\
-	dverb2.o gdt.o lightp.o local.o nobjs.o np.o np1.o np2.o np3.o\
-	nrooms.o objcts.o rooms.o sobjs.o supp.o sverbs.o verbs.o villns.o vars.o parse.o
+SOURCES = $(wildcard src/*.cpp)
+HEADERS = $(wildcard src/*.hpp)
+OBJECTS = $(patsubst src/%.cpp,src/%.o,$(wildcard src/*.cpp))
 
 default: dungeon
 
-install: zork dtextc.dat
+install: bin/zork dtextc.dat
 	mkdir -p $(BINDIR) $(LIBDIR) $(MANDIR)/man6
-	cp zork $(BINDIR)
+	cp bin/zork $(BINDIR)
 	cp dtextc.dat $(DATADIR)
 	cp dungeon.6 $(MANDIR)/man6/
 
 clean:
-	rm -f $(OBJS) zork core dsave.dat *~
+	rm -f $(OBJECTS) bin/zork core dsave.dat src/*~
 
 dtextc.dat:
 	cat dtextc.uu1 dtextc.uu2 dtextc.uu3 dtextc.uu4 | uudecode
 
-%.o: %.cpp funcs.h vars.h
-	$(CPP) $(CFLAGS) $(GDTFLAG) -DTEXTFILE=\"$(DATADIR)/dtextc.dat\" -c $< -o $@
-
-dungeon: $(OBJS) dtextc.dat
-	$(CPP) $(CFLAGS) -o zork $(OBJS) $(LIBS)
+dungeon: $(OBJECTS) dtextc.dat
+	mkdir -p bin
+	$(CXX) $(CXXFLAGS) -o bin/zork $(OBJECTS) $(LIBS)
