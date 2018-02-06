@@ -14,153 +14,104 @@ int trollp_(int arg) {
 	/* Local variables */
 	int i;
 
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!ASSUME WINS. */
 	if (prsvec_1.prsa != vindex_1.fightw) {
-		goto L1100;
+	    if (prsvec_1.prsa != vindex_1.deadxw) {
+	        if (prsvec_1.prsa != vindex_1.outxw) {
+	            if (prsvec_1.prsa != vindex_1.inxw) {
+	                if (prsvec_1.prsa != vindex_1.frstqw) {
+	                    if (prsvec_1.prsa != vindex_1.movew && prsvec_1.prsa != vindex_1.takew &&
+		                    prsvec_1.prsa != vindex_1.mungw && prsvec_1.prsa !=
+		                    vindex_1.throww && prsvec_1.prsa != vindex_1.givew) {
+	                            if (!findex_1.trollf || prsvec_1.prsa != vindex_1.hellow) {
+		                            return false;
+	                            }
+	                            rspeak_(366);/*!TROLL OUT. */
+	                            return true;
+	                    }
+	                    if (objcts_1.ocapac[oindex_1.troll - 1] >= 0) {
+	                        if (prsvec_1.prsa != vindex_1.takew && prsvec_1.prsa != vindex_1.movew) {
+	                            if (prsvec_1.prsa != vindex_1.mungw) {
+	                                if (prsvec_1.prso == 0) {
+		                                return false;
+	                                }/*!NO OBJECT? */
+	                                /*throw or give*/
+	                                rspsub_(prsvec_1.prsa != vindex_1.givew ? 440 : 441, objcts_1.odesc2[prsvec_1.prso - 1]);
+	                                /* 						!TROLL TAKES. */
+	                                if (prsvec_1.prso == oindex_1.knife) {
+	                                    rspeak_(443);
+	                                    /* 						!KNIFE, THROWS IT BACK */
+	                                    objcts_1.oflag2[oindex_1.troll - 1] |= FITEBT;
+	                                    return true;
+	                                }
+	                                /* 						!OBJ KNIFE? */
+	                                newsta_(prsvec_1.prso, 442, 0, 0, 0);
+	                                /* 						!NO, EATS IT. */
+	                                return true;
+	                            }
+	                            /* 						!MUNG? */
+	                            rspeak_(439);
+	                            /* 						!JOKE. */
+	                            return true;
+	                        }
+	                        rspeak_(438);
+	                        /* 						!JOKE. */
+	                        return true;
+	                    }
+	                    /* 						!TROLL OUT? */
+	                    objcts_1.ocapac[oindex_1.troll - 1] = -objcts_1.ocapac[oindex_1.troll - 1]
+		                    ;
+	                    /* 						!YES, WAKE HIM. */
+	                    objcts_1.oflag1[oindex_1.axe - 1] |= VISIBT;
+	                    findex_1.trollf = FALSE_;
+	                    objcts_1.odesc1[oindex_1.troll - 1] = 436;
+	                    rspeak_(437);
+	                }
+	                /* 						!FIRST ENCOUNTER? */
+	                ret_val = prob_(33, 66);
+	                /* 						!33% TRUE UNLESS BADLK. */
+	                return ret_val;
+	            }
+	            /* 						!WAKE UP? */
+	            findex_1.trollf = false;
+	            /* 						!FORBID EXITS. */
+	            objcts_1.oflag1[oindex_1.axe - 1] |= VISIBT;
+	            objcts_1.odesc1[oindex_1.troll - 1] = 436;
+	            /* 						!TROLL IN. */
+	            if (qhere_(oindex_1.troll, play_1.here)) {
+		            rspeak_(437);
+	            }
+	            return true;
+	        }
+	        /* 						!OUT? */
+	        findex_1.trollf = true;
+	        /* 						!PERMIT EXITS. */
+	        objcts_1.oflag1[oindex_1.axe - 1] &= ~VISIBT;
+	        objcts_1.odesc1[oindex_1.troll - 1] = 435;
+	        /* 						!TROLL OUT. */
+	        return true;
+	    }
+	    /* 						!DEAD? */
+	    findex_1.trollf = true;
+	    /* 						!PERMIT EXITS. */
+	    return true;
 	}
 	/* 						!FIGHT? */
 	if (objcts_1.ocan[oindex_1.axe - 1] == oindex_1.troll) {
-		goto L10;
+		return false;
 	}
-	/* 						!GOT AXE?  NOTHING. */
-	i = 433;
-	/* 						!ASSUME CANT GET. */
-	if (!qhere_(oindex_1.axe, play_1.here)) {
-		goto L1050;
-	}
-	/* 						!HERE? */
-	i = 434;
-	/* 						!YES, RECOVER. */
-	newsta_(oindex_1.axe, 0, 0, oindex_1.troll, 0);
-L1050:
-	if (qhere_(oindex_1.troll, play_1.here)) {
-		rspeak_(i);
-	}
-	/* 						!IF PLAYER HERE. */
-	return ret_val;
-
-L1100:
-	if (prsvec_1.prsa != vindex_1.deadxw) {
-		goto L1200;
-	}
-	/* 						!DEAD? */
-	findex_1.trollf = TRUE_;
-	/* 						!PERMIT EXITS. */
-	return ret_val;
-
-L1200:
-	if (prsvec_1.prsa != vindex_1.outxw) {
-		goto L1300;
-	}
-	/* 						!OUT? */
-	findex_1.trollf = TRUE_;
-	/* 						!PERMIT EXITS. */
-	objcts_1.oflag1[oindex_1.axe - 1] &= ~VISIBT;
-	objcts_1.odesc1[oindex_1.troll - 1] = 435;
-	/* 						!TROLL OUT. */
-	return ret_val;
-
-L1300:
-	if (prsvec_1.prsa != vindex_1.inxw) {
-		goto L1400;
-	}
-	/* 						!WAKE UP? */
-	findex_1.trollf = FALSE_;
-	/* 						!FORBID EXITS. */
-	objcts_1.oflag1[oindex_1.axe - 1] |= VISIBT;
-	objcts_1.odesc1[oindex_1.troll - 1] = 436;
-	/* 						!TROLL IN. */
-	if (qhere_(oindex_1.troll, play_1.here)) {
-		rspeak_(437);
-	}
-	return ret_val;
-
-L1400:
-	if (prsvec_1.prsa != vindex_1.frstqw) {
-		goto L1500;
-	}
-	/* 						!FIRST ENCOUNTER? */
-	ret_val = prob_(33, 66);
-	/* 						!33% TRUE UNLESS BADLK. */
-	return ret_val;
-
-L1500:
-	if (prsvec_1.prsa != vindex_1.movew && prsvec_1.prsa != vindex_1.takew &&
-		prsvec_1.prsa != vindex_1.mungw && prsvec_1.prsa !=
-		vindex_1.throww && prsvec_1.prsa != vindex_1.givew) {
-		goto L2000;
-	}
-	if (objcts_1.ocapac[oindex_1.troll - 1] >= 0) {
-		goto L1550;
-	}
-	/* 						!TROLL OUT? */
-	objcts_1.ocapac[oindex_1.troll - 1] = -objcts_1.ocapac[oindex_1.troll - 1]
-		;
-	/* 						!YES, WAKE HIM. */
-	objcts_1.oflag1[oindex_1.axe - 1] |= VISIBT;
-	findex_1.trollf = FALSE_;
-	objcts_1.odesc1[oindex_1.troll - 1] = 436;
-	rspeak_(437);
-
-L1550:
-	if (prsvec_1.prsa != vindex_1.takew && prsvec_1.prsa != vindex_1.movew) {
-		goto L1600;
-	}
-	rspeak_(438);
-	/* 						!JOKE. */
-	return ret_val;
-
-L1600:
-	if (prsvec_1.prsa != vindex_1.mungw) {
-		goto L1700;
-	}
-	/* 						!MUNG? */
-	rspeak_(439);
-	/* 						!JOKE. */
-	return ret_val;
-
-L1700:
-	if (prsvec_1.prso == 0) {
-		goto L10;
-	}
-	/* 						!NO OBJECT? */
-	i = 440;
-	/* 						!ASSUME THROW. */
-	if (prsvec_1.prsa == vindex_1.givew) {
-		i = 441;
-	}
-	/* 						!GIVE? */
-	rspsub_(i, objcts_1.odesc2[prsvec_1.prso - 1]);
-	/* 						!TROLL TAKES. */
-	if (prsvec_1.prso == oindex_1.knife) {
-		goto L1900;
-	}
-	/* 						!OBJ KNIFE? */
-	newsta_(prsvec_1.prso, 442, 0, 0, 0);
-	/* 						!NO, EATS IT. */
-	return ret_val;
-
-L1900:
-	rspeak_(443);
-	/* 						!KNIFE, THROWS IT BACK */
-	objcts_1.oflag2[oindex_1.troll - 1] |= FITEBT;
-	return ret_val;
-
-L2000:
-	if (!findex_1.trollf || prsvec_1.prsa != vindex_1.hellow) {
-		goto L10;
-	}
-	rspeak_(366);
-	/* 						!TROLL OUT. */
-	return ret_val;
-
-L10:
-	ret_val = FALSE_;
-	/* 						!COULDNT HANDLE IT. */
-	return ret_val;
-} /* trollp_ */
-
+    /* 						!ASSUME CANT GET. */
+    if (!qhere_(oindex_1.axe, play_1.here)) {
+        if (qhere_(oindex_1.troll, play_1.here)) {
+	        rspeak_(433);
+        }
+        /* 						!IF PLAYER HERE. */
+        return true;
+    }
+    /* 						!YES, RECOVER. */
+    newsta_(oindex_1.axe, 0, 0, oindex_1.troll, 0);
+}
 /* CYCLOP-	CYCLOPS FUNCTION */
 
 /* DECLARATIONS */
