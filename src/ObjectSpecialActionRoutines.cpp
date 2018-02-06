@@ -43,7 +43,7 @@ L5:
 	}
 	av = advs_1.avehic[play_1.winner - 1];
 	flobts = FLAMBT + LITEBT + ONBT;
-	ret_val = TRUE_;
+	ret_val = true;
 
 	switch (ri - mxsmp) {
 	case 1:  goto L2000;
@@ -84,7 +84,7 @@ L5:
 	/* RETURN HERE TO DECLARE FALSE RESULT */
 
 L10:
-	ret_val = FALSE_;
+	ret_val = false;
 	return ret_val;
 
 	/* SIMPLE OBJECTS, PROCESSED EXTERNALLY. */
@@ -326,7 +326,7 @@ L15000:
 	objcts_1.oflag1[oindex_1.torch - 1] &= ~flobts;
 	newsta_(oindex_1.torch, 0, rindex_1.strea, 0, 0);
 	/* 						!MOVE TORCH. */
-	findex_1.glacrf = TRUE_;
+	findex_1.glacrf = true;
 	/* 						!GLACIER GONE. */
 	if (!lit_(play_1.here)) {
 		rspeak_(170);
@@ -351,7 +351,7 @@ L15500:
 	return ret_val;
 
 L15600:
-	findex_1.glacmf = TRUE_;
+	findex_1.glacmf = true;
 	/* 						!PARTIAL MELT. */
 	if (prsvec_1.prsi != oindex_1.torch) {
 		goto L15700;
@@ -447,7 +447,7 @@ L32500:
 		return ret_val;
 	}
 	/* 						!BURN OR MUNG? */
-	findex_1.onpolf = TRUE_;
+	findex_1.onpolf = true;
 	/* 						!SET HEAD ON POLE. */
 	newsta_(oindex_1.hpole, 0, rindex_1.lld2, 0, 0);
 	jigsup_(229);
@@ -498,7 +498,7 @@ L39200:
 	return ret_val;
 
 L39500:
-	findex_1.rainbf = FALSE_;
+	findex_1.rainbf = false;
 	/* 						!ON RAINBOW, */
 	jigsup_(247);
 	/* 						!TAKE A FALL. */
@@ -610,7 +610,7 @@ L48100:
 		i = 266;
 	}
 	/* 						!SPEED UP? */
-	findex_1.carozf = TRUE_;
+	findex_1.carozf = true;
 	rspeak_(i);
 	return ret_val;
 
@@ -620,7 +620,7 @@ L48200:
 	if (findex_1.carozf) {
 		i = 268;
 	}
-	findex_1.carozf = FALSE_;
+	findex_1.carozf = false;
 	rspeak_(i);
 	return ret_val;
 
@@ -670,7 +670,7 @@ L50000:
 		findex_1.bucktf) {
 		goto L50500;
 	}
-	findex_1.bucktf = TRUE_;
+	findex_1.bucktf = true;
 	/* 						!BUCKET AT TOP. */
 	cevent_1.ctick[cindex_1.cevbuc - 1] = 100;
 	/* 						!START COUNTDOWN. */
@@ -684,7 +684,7 @@ L50500:
 		findex_1.bucktf) {
 		goto L10;
 	}
-	findex_1.bucktf = FALSE_;
+	findex_1.bucktf = false;
 	newsta_(oindex_1.bucke, 291, rindex_1.bwell, 0, 0);
 	/* 						!BUCKET AT BOTTOM. */
 L50900:
@@ -894,7 +894,7 @@ L56200:
 		rspeak_(730);
 	}
 	/* 						!IF PANEL OPEN, CLOSE. */
-	findex_1.wdopnf = FALSE_;
+	findex_1.wdopnf = false;
 	return ret_val;
 	/* 						!DONE. */
 
@@ -925,9 +925,9 @@ L57100:
 	}
 	rspeak_(736);
 	/* 						!NO, OPENS. */
-	findex_1.wdopnf = TRUE_;
+	findex_1.wdopnf = true;
 	/* 						!INDICATE OPEN. */
-	cevent_1.cflag[cindex_1.cevpin - 1] = TRUE_;
+	cevent_1.cflag[cindex_1.cevpin - 1] = true;
 	/* 						!TIME OPENING. */
 	cevent_1.ctick[cindex_1.cevpin - 1] = 5;
 	return ret_val;

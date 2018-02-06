@@ -23,7 +23,7 @@ int rappl2_(int ri) {
 	int i;
 	int j;
 
-	ret_val = TRUE_;
+	ret_val = true;
 	switch (ri - newrms + 1) {
 	case 1:  goto L38000;
 	case 2:  goto L39000;
@@ -215,7 +215,7 @@ L50000:
 		goto L50100;
 	}
 	/* 						!WALK IN? */
-	cevent_1.cflag[cindex_1.cevfol - 1] = TRUE_;
+	cevent_1.cflag[cindex_1.cevfol - 1] = true;
 	/* 						!MASTER FOLLOWS. */
 	cevent_1.ctick[cindex_1.cevfol - 1] = -1;
 	return ret_val;

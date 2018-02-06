@@ -242,7 +242,7 @@ L100:
 	/* 						!CHARGE TEN POINTS. */
 	f = moveto_(rindex_1.fore1, play_1.winner);
 	/* 						!REPOSITION HIM. */
-	findex_1.egyptf = TRUE_;
+	findex_1.egyptf = true;
 	/* 						!RESTORE COFFIN. */
 	if (objcts_1.oadv[oindex_1.coffi - 1] == play_1.winner) {
 		newsta_(oindex_1.coffi, 0, rindex_1.egypt, 0, 0);
@@ -380,7 +380,7 @@ int rmdesc_(int full) {
 
 	/* FULL=	0/1/2/3=	SHORT/OBJ/ROOM/FULL */
 
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!ASSUME WINS. */
 	if (prsvec_1.prso < xsrch_1.xmin) {
 		goto L50;
@@ -408,7 +408,7 @@ L100:
 	/* 						!LIT? */
 	rspeak_(430);
 	/* 						!WARN OF GRUE. */
-	ret_val = FALSE_;
+	ret_val = false;
 	return ret_val;
 
 L300:

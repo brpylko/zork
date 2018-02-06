@@ -33,7 +33,7 @@ int synmch_() {
 	int newj;
 	int drive, limit, qprep, sprep, dforce;
 
-	ret_val = FALSE_;
+	ret_val = false;
 	j = pv_1.act;
 	/* 						!SET UP PTR TO SYNTAX. */
 	drive = 0;
@@ -196,7 +196,7 @@ L5000:
 		return ret_val;
 	}
 	/* 						!TRY TAKE. */
-	ret_val = TRUE_;
+	ret_val = true;
 	return ret_val;
 
 } /* synmch_ */
@@ -300,7 +300,7 @@ static int takeit_(int obj, int sflag) {
 
 	/* TAKEIT, PAGE 2 */
 
-	ret_val = FALSE_;
+	ret_val = false;
 	/* 						!ASSUME LOSES. */
 	if (obj == 0 || obj > star_1.strbit) {
 		goto L4000;
@@ -396,7 +396,7 @@ L3700:
 	objcts_1.ofval[obj - 1] = 0;
 
 L4000:
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!SUCCESS. */
 	return ret_val;
 

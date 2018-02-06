@@ -71,7 +71,7 @@ int parse_(char* inbuf, int vbflag) {
 	--inbuf;
 
 	/* Function Body */
-	ret_val = FALSE_;
+	ret_val = false;
 	/* 						!ASSUME FAILS. */
 	prsvec_1.prsa = 0;
 	/* 						!ZERO OUTPUTS. */
@@ -108,7 +108,7 @@ L200:
 	/* SUCCESSFUL PARSE OR SUCCESSFUL VALIDATION */
 
 L300:
-	ret_val = TRUE_;
+	ret_val = true;
 L350:
 	orphan_(0, 0, 0, 0, 0);
 	/* 						!CLEAR ORPHANS. */
@@ -166,7 +166,7 @@ static int lex_(char* inbuf, int* outbuf, int* op, int vbflag) {
 		/* L100: */
 	}
 
-	ret_val = FALSE_;
+	ret_val = false;
 	/* 						!ASSUME LEX FAILS. */
 	*op = -1;
 	/* 						!OUTPUT PTR. */
@@ -227,7 +227,7 @@ L1000:
 		*op += -2;
 	}
 	/* 						!ANY LAST WORD? */
-	ret_val = TRUE_;
+	ret_val = true;
 	return ret_val;
 
 	/* LEGITIMATE CHARACTERS: LETTER, DIGIT, OR HYPHEN. */

@@ -32,7 +32,7 @@ L5:
 		odi2 = objcts_1.odesc2[prsvec_1.prsi - 1];
 	}
 	av = advs_1.avehic[play_1.winner - 1];
-	ret_val = TRUE_;
+	ret_val = true;
 
 	switch (ri) {
 	case 1:  goto L1000;
@@ -72,7 +72,7 @@ L5:
 	/* RETURN HERE TO DECLARE FALSE RESULT */
 
 L10:
-	ret_val = FALSE_;
+	ret_val = false;
 	return ret_val;
 	/* SOBJS, PAGE 3 */
 
@@ -126,7 +126,7 @@ L6000:
 		goto L6100;
 	}
 	/* 						!IN DOME? */
-	findex_1.domef = FALSE_;
+	findex_1.domef = false;
 	/* 						!NO, */
 	if (prsvec_1.prsa != vindex_1.untiew) {
 		goto L6050;
@@ -153,7 +153,7 @@ L6100:
 		goto L6150;
 	}
 	/* 						!ALREADY TIED? */
-	findex_1.domef = TRUE_;
+	findex_1.domef = true;
 	/* 						!NO, TIE IT. */
 	objcts_1.oflag1[oindex_1.rope - 1] |= NDSCBT;
 	objcts_1.oflag2[oindex_1.rope - 1] |= CLMBBT;
@@ -179,7 +179,7 @@ L6200:
 	return ret_val;
 
 L6250:
-	findex_1.domef = FALSE_;
+	findex_1.domef = false;
 	/* 						!YES, UNTIE IT. */
 	objcts_1.oflag1[oindex_1.rope - 1] &= ~NDSCBT;
 	objcts_1.oflag2[oindex_1.rope - 1] &= ~CLMBBT;
@@ -208,7 +208,7 @@ L6400:
 L7000:
 	if (prsvec_1.prsa == vindex_1.takew && play_1.winner == aindex_1.player) {
 
-		hack_1.swdact = TRUE_;
+		hack_1.swdact = true;
 	}
 	goto L10;
 
@@ -227,10 +227,10 @@ L8000:
 
 L8100:
 	if (prsvec_1.prsa == vindex_1.trnonw) {
-		cevent_1.cflag[cindex_1.cevlnt - 1] = TRUE_;
+		cevent_1.cflag[cindex_1.cevlnt - 1] = true;
 	}
 	if (prsvec_1.prsa == vindex_1.trnofw) {
-		cevent_1.cflag[cindex_1.cevlnt - 1] = FALSE_;
+		cevent_1.cflag[cindex_1.cevlnt - 1] = false;
 	}
 	goto L10;
 
@@ -345,8 +345,8 @@ L14700:
 		i = 168;
 	}
 	/* 						!MIRROR ALREADY BROKEN. */
-	findex_1.mirrmf = TRUE_;
-	findex_1.badlkf = TRUE_;
+	findex_1.mirrmf = true;
+	findex_1.badlkf = true;
 	rspeak_(i);
 	return ret_val;
 	/* SOBJS, PAGE 6 */
@@ -365,7 +365,7 @@ L16000:
 	newsta_(oindex_1.tbask, 175, rindex_1.tshaf, 0, 0);
 	/* 						!NO, RAISE BASKET. */
 	newsta_(oindex_1.fbask, 0, rindex_1.bshaf, 0, 0);
-	findex_1.cagetf = TRUE_;
+	findex_1.cagetf = true;
 	/* 						!AT TOP. */
 	return ret_val;
 
@@ -381,7 +381,7 @@ L16100:
 	newsta_(oindex_1.tbask, 176, rindex_1.bshaf, 0, 0);
 	/* 						!NO, LOWER BASKET. */
 	newsta_(oindex_1.fbask, 0, rindex_1.tshaf, 0, 0);
-	findex_1.cagetf = FALSE_;
+	findex_1.cagetf = false;
 	if (!lit_(play_1.here)) {
 		rspeak_(406);
 	}
@@ -489,7 +489,7 @@ L27100:
 		goto L27200;
 	}
 	/* 						!LOW TIDE NOW? */
-	findex_1.lwtidf = TRUE_;
+	findex_1.lwtidf = true;
 	/* 						!NO, EMPTY DAM. */
 	rspeak_(211);
 	objcts_1.oflag2[oindex_1.coffi - 1] &= ~SCRDBT;
@@ -499,7 +499,7 @@ L27100:
 	return ret_val;
 
 L27200:
-	findex_1.lwtidf = FALSE_;
+	findex_1.lwtidf = false;
 	/* 						!YES, FILL DAM. */
 	rspeak_(212);
 	if (qhere_(oindex_1.trunk, rindex_1.reser)) {
@@ -703,13 +703,13 @@ L34100:
 	return ret_val;
 
 L34200:
-	findex_1.gatef = TRUE_;
+	findex_1.gatef = true;
 	/* 						!RELEASE GATE. */
 	rspeak_(232);
 	return ret_val;
 
 L34300:
-	findex_1.gatef = FALSE_;
+	findex_1.gatef = false;
 	/* 						!INTERLOCK GATE. */
 	rspeak_(232);
 	return ret_val;
@@ -754,7 +754,7 @@ L36100:
 	/* 						!KILL DEFL BOAT, */
 	newsta_(oindex_1.rboat, 236, play_1.here, 0, 0);
 	/* 						!REPL WITH INF. */
-	findex_1.deflaf = FALSE_;
+	findex_1.deflaf = false;
 	return ret_val;
 
 L36200:
@@ -809,7 +809,7 @@ L38000:
 	/* 						!KILL INFL BOAT, */
 	newsta_(oindex_1.dboat, 240, play_1.here, 0, 0);
 	/* 						!REPL WITH DEAD. */
-	findex_1.deflaf = TRUE_;
+	findex_1.deflaf = true;
 	return ret_val;
 
 L38100:
@@ -838,7 +838,7 @@ L38200:
 	/* 						!KILL INFL BOAT, */
 	newsta_(oindex_1.iboat, 241, play_1.here, 0, 0);
 	/* 						!REPL WITH DEFL. */
-	findex_1.deflaf = TRUE_;
+	findex_1.deflaf = true;
 	return ret_val;
 
 L38300:
@@ -861,7 +861,7 @@ L41000:
 	}
 	findex_1.btief = prsvec_1.prsi;
 	/* 						!RECORD LOCATION. */
-	cevent_1.cflag[cindex_1.cevbal - 1] = FALSE_;
+	cevent_1.cflag[cindex_1.cevbal - 1] = false;
 	/* 						!STALL ASCENT. */
 	rspeak_(248);
 	return ret_val;
@@ -885,7 +885,7 @@ L41600:
 	/* 						!UNTIE. */
 	cevent_1.ctick[cindex_1.cevbal - 1] = 3;
 	/* 						!RESTART CLOCK. */
-	cevent_1.cflag[cindex_1.cevbal - 1] = TRUE_;
+	cevent_1.cflag[cindex_1.cevbal - 1] = true;
 	return ret_val;
 
 	/* O26--	SAFE */
@@ -946,7 +946,7 @@ L44000:
 	newsta_(prsvec_1.prso, 0, 0, 0, 0);
 	newsta_(oindex_1.gnome, 0, 0, 0, 0);
 	/* 						!VANISH GNOME. */
-	findex_1.gnodrf = TRUE_;
+	findex_1.gnodrf = true;
 	return ret_val;
 
 L44100:
@@ -962,7 +962,7 @@ L44500:
 		cevent_1.ctick[cindex_1.cevgno - 1] = 5;
 	}
 	/* 						!SCHEDULE BYEBYE. */
-	findex_1.gnomef = TRUE_;
+	findex_1.gnomef = true;
 	return ret_val;
 
 	/* O29--	COKE BOTTLES */

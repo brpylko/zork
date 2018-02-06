@@ -159,7 +159,7 @@ int vilstr_(int v) {
 	if (v != oindex_1.thief || !findex_1.thfenf) {
 		goto L100;
 	}
-	findex_1.thfenf = FALSE_;
+	findex_1.thfenf = false;
 	/* 						!THIEF UNENGROSSED. */
 	ret_val = min(ret_val, 2);
 	/* 						!NO BETTER THAN 2. */

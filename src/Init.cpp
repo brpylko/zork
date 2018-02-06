@@ -78,7 +78,21 @@ static void rdflags(int c, int* pf, FILE* indxfile) {
 		*pf++ = getc(indxfile);
 }
 
-int init_() {
+bool init_fail() {
+	more_output("Suddenly a sinister, wraithlike figure appears before you,");
+	more_output("seeming to float in the air.  In a low, sorrowful voice he says,");
+	more_output("\"Alas, the very nature of the world has changed, and the dungeon");
+	more_output("cannot be found.  All must now pass away.\"  Raising his oaken staff");
+	more_output("in farewell, he fades into the spreading darkness.  In his place");
+	more_output("appears a tastefully lettered sign reading:");
+	more_output("");
+	more_output("                       INITIALIZATION FAILURE");
+	more_output("");
+	more_output("The darkness becomes all encompassing, and your vision fails.");
+	return false;
+}
+
+bool init_() {
 	/* System generated locals */
 	int i__1;
 	int ret_val;
@@ -91,26 +105,7 @@ int init_() {
 	int mmax, omax, rmax, vmax, amax, cmax, fmax, smax;
 
 	more_init();
-	goto L10000;
-	/* 						!PROTECTION VIOLATION? */
-	more_output("There appears before you a threatening figure clad all over");
-	more_output("in heavy black armor.  His legs seem like the massive trunk");
-	more_output("of the oak tree.  His broad shoulders and helmeted head loom");
-	more_output("high over your own puny frame, and you realize that his powerful");
-	more_output("arms could easily crush the very life from your body.  There");
-	more_output("hangs from his belt a veritable arsenal of deadly weapons:");
-	more_output("sword, mace, ball and chain, dagger, lance, and trident.");
-	more_output("He speaks with a commanding voice:");
-	more_output("");
-	more_output("                    \"You shall not pass.\"");
-	more_output("");
-	more_output("As he grabs you by the neck all grows dim about you.");
-	exit_();
-
-	/* NOW START INITIALIZATION PROPER */
-
-L10000:
-	ret_val = FALSE_;
+	ret_val = false;
 	/* 						!ASSUME INIT FAILS. */
 	mmax = 1050;
 	/* 						!SET UP ARRAY LIMITS. */
@@ -158,11 +153,11 @@ L10000:
 	orphs_1.oslot = 0;
 	orphs_1.oprep = 0;
 	orphs_1.oname = 0;
-	hack_1.thfflg = FALSE_;
+	hack_1.thfflg = false;
 	/* 						!THIEF NOT INTRODUCED BUT */
-	hack_1.thfact = TRUE_;
+	hack_1.thfact = true;
 	/* 						!IS ACTIVE. */
-	hack_1.swdact = FALSE_;
+	hack_1.swdact = false;
 	/* 						!SWORD IS INACTIVE. */
 	hack_1.swdsta = 0;
 	/* 						!SWORD IS OFF. */
@@ -178,7 +173,7 @@ L10000:
 	i__1 = cmax;
 	for (i = 1; i <= i__1; ++i) {
 		/* 						!CLEAR CLOCK EVENTS */
-		cevent_1.cflag[i - 1] = FALSE_;
+		cevent_1.cflag[i - 1] = false;
 		cevent_1.ctick[i - 1] = 0;
 		cevent_1.cactio[i - 1] = 0;
 		/* L5: */
@@ -187,16 +182,16 @@ L10000:
 	i__1 = fmax;
 	for (i = 1; i <= i__1; ++i) {
 		/* 						!CLEAR FLAGS. */
-		flags[i - 1] = FALSE_;
+		flags[i - 1] = false;
 		/* L10: */
 	}
-	findex_1.buoyf = TRUE_;
+	findex_1.buoyf = true;
 	/* 						!SOME START AS TRUE. */
-	findex_1.egyptf = TRUE_;
-	findex_1.cagetf = TRUE_;
-	findex_1.mr1f = TRUE_;
-	findex_1.mr2f = TRUE_;
-	findex_1.follwf = TRUE_;
+	findex_1.egyptf = true;
+	findex_1.cagetf = true;
+	findex_1.mr1f = true;
+	findex_1.mr2f = true;
+	findex_1.follwf = true;
 	i__1 = smax;
 	for (i = 1; i <= i__1; ++i) {
 		/* 						!CLEAR SWITCHES. */
@@ -295,8 +290,6 @@ L10000:
 
 #ifdef ALLOW_GDT
 
-	/* allow setting gdtflg true if user id matches wizard id */
-	/* this way, the wizard doesn't have to recompile to use gdt */
 	debug_1.gdtflg = 1;
 
 #endif /* ALLOW_GDT */
@@ -311,13 +304,16 @@ L10000:
 
 #ifdef __AMOS__
 	if ((dbfile = fdopen(ropen(LOCALTEXTFILE, 0), BINREAD)) == NULL &&
-		(dbfile = fdopen(ropen(TEXTFILE, 0), BINREAD)) == NULL)
+		(dbfile = fdopen(ropen(TEXTFILE, 0), BINREAD)) == NULL) {
 #else
 	if ((dbfile = fopen(LOCALTEXTFILE, BINREAD)) == NULL &&
-		(dbfile = fopen(TEXTFILE, BINREAD)) == NULL)
+		(dbfile = fopen(TEXTFILE, BINREAD)) == NULL) {
 #endif
-		goto L1950;
-
+		
+		more_output(NULL);
+		printf("I can't open %s.\n", TEXTFILE);
+		return init_fail();
+	}
 	indxfile = dbfile;
 
 	i = rdint(indxfile);
@@ -326,7 +322,12 @@ L10000:
 
 	/* 						!GET VERSION. */
 	if (i != vers_1.vmaj || j != vers_1.vmin) {
-		goto L1925;
+		more_output(NULL);
+		printf("%s is version %1d.%1d%c.\n", TEXTFILE, i, j, k);
+		more_output(NULL);
+		printf("I require version %1d.%1d%c.\n", vers_1.vmaj, vers_1.vmin,
+			vers_1.vedit);
+		return init_fail();
 	}
 
 	state_1.mxscor = rdint(indxfile);
@@ -407,34 +408,7 @@ L10000:
 	play_1.here = advs_1.aroom[play_1.winner - 1];
 	hack_1.thfpos = objcts_1.oroom[oindex_1.thief - 1];
 	state_1.bloc = objcts_1.oroom[oindex_1.ballo - 1];
-	ret_val = TRUE_;
 
-	return ret_val;
-	/* INIT, PAGE 6 */
-
-	/* ERRORS-- INIT FAILS. */
-
-L1925:
-	more_output(NULL);
-	printf("%s is version %1d.%1d%c.\n", TEXTFILE, i, j, k);
-	more_output(NULL);
-	printf("I require version %1d.%1d%c.\n", vers_1.vmaj, vers_1.vmin,
-		vers_1.vedit);
-	goto L1975;
-L1950:
-	more_output(NULL);
-	printf("I can't open %s.\n", TEXTFILE);
-L1975:
-	more_output("Suddenly a sinister, wraithlike figure appears before you,");
-	more_output("seeming to float in the air.  In a low, sorrowful voice he says,");
-	more_output("\"Alas, the very nature of the world has changed, and the dungeon");
-	more_output("cannot be found.  All must now pass away.\"  Raising his oaken staff");
-	more_output("in farewell, he fades into the spreading darkness.  In his place");
-	more_output("appears a tastefully lettered sign reading:");
-	more_output("");
-	more_output("                       INITIALIZATION FAILURE");
-	more_output("");
-	more_output("The darkness becomes all encompassing, and your vision fails.");
-	return ret_val;
+	return true;
 
 } /* init_ */

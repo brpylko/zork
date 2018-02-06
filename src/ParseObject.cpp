@@ -24,7 +24,7 @@ int getobj_(int oidx, int aidx, int spcobj) {
 
 	/* GETOBJ, PAGE 2 */
 
-	chomp = FALSE_;
+	chomp = false;
 	av = advs_1.avehic[play_1.winner - 1];
 	obj = 0;
 	/* 						!ASSUME DARK. */
@@ -52,7 +52,7 @@ L100:
 		goto L200;
 	}
 	/* 						!TEST IF REACHABLE. */
-	chomp = TRUE_;
+	chomp = true;
 	/* 						!PROBABLY NOT. */
 
 L200:
@@ -71,7 +71,7 @@ L200:
 	}
 	/* 						!TEST RESULT. */
 L300:
-	chomp = FALSE_;
+	chomp = false;
 	/* 						!REACHABLE. */
 	if (obj == nobj) {
 		goto L400;
@@ -257,7 +257,7 @@ static int thisit_(int oidx, int aidx, int obj, int spcobj) {
 	/* Local variables */
 	int i;
 
-	ret_val = FALSE_;
+	ret_val = false;
 	/* 						!ASSUME NO MATCH. */
 	if (spcobj != 0 && obj == spcobj) {
 		goto L500;
@@ -294,6 +294,6 @@ L200:
 	/* 						!IF FAIL, CONT. */
 
 L500:
-	ret_val = TRUE_;
+	ret_val = true;
 	return ret_val;
 } /* thisit_ */

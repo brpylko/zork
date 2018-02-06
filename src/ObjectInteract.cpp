@@ -18,7 +18,7 @@ int take_(int flg) {
 	int oa;
 	int x;
 
-	ret_val = FALSE_;
+	ret_val = false;
 	/* 						!ASSUME LOSES. */
 	oa = objcts_1.oactio[prsvec_1.prso - 1];
 	/* 						!GET OBJECT ACTION. */
@@ -74,7 +74,7 @@ L600:
 	return ret_val;
 
 L700:
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!AT LAST. */
 	if (oappli_(oa, 0)) {
 		return ret_val;
@@ -107,7 +107,7 @@ int drop_(int z) {
 	int f;
 	int i, x;
 
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!ASSUME WINS. */
 	x = objcts_1.ocan[prsvec_1.prso - 1];
 	/* 						!GET CONTAINER. */
@@ -194,7 +194,7 @@ int put_(int flg) {
 	int j;
 	int svi, svo;
 
-	ret_val = FALSE_;
+	ret_val = false;
 	if (prsvec_1.prso <= star_1.strbit && prsvec_1.prsi <= star_1.strbit) {
 		goto L200;
 	}
@@ -202,7 +202,7 @@ int put_(int flg) {
 		rspeak_(560);
 	}
 	/* 						!STAR */
-	ret_val = TRUE_;
+	ret_val = true;
 	return ret_val;
 
 L200:
@@ -241,7 +241,7 @@ L500:
 	/* 						!ALREADY INSIDE. */
 	rspeak_(564, objcts_1.odesc2[prsvec_1.prso - 1], objcts_1.odesc2[
 		prsvec_1.prsi - 1]);
-	ret_val = TRUE_;
+	ret_val = true;
 	return ret_val;
 
 L600:
@@ -318,7 +318,7 @@ L1000:
 	/* 						!NO, GIVE OBJECT A SHOT. */
 	newsta_(prsvec_1.prso, 2, 0, prsvec_1.prsi, 0);
 	/* 						!CONTAINED INSIDE. */
-	ret_val = TRUE_;
+	ret_val = true;
 	return ret_val;
 
 } /* put_ */
@@ -335,7 +335,7 @@ void valuac_(int v) {
 	int f1;
 	int savep, saveh;
 
-	f = TRUE_;
+	f = true;
 	/* 						!ASSUME NO ACTIONS. */
 	i = 579;
 	/* 						!ASSUME NOT LIT. */
@@ -368,7 +368,7 @@ void valuac_(int v) {
 			objcts_1.oflag2[prsvec_1.prso - 1] & TRYBT) == 0) {
 			goto L500;
 		}
-		f = FALSE_;
+		f = false;
 		rspeak_(580, objcts_1.odesc2[prsvec_1.prso - 1]);
 		f1 = take_(1);
 		if (saveh != play_1.here) {
@@ -390,7 +390,7 @@ L1000:
 			&& objcts_1.otval[prsvec_1.prso - 1] <= 0) {
 			goto L1500;
 		}
-		f = FALSE_;
+		f = false;
 		rspeak_(580, objcts_1.odesc2[prsvec_1.prso - 1]);
 		f1 = drop_(1);
 		if (saveh != play_1.here) {
@@ -415,7 +415,7 @@ L2000:
 				prsvec_1.prso - 1] & VISIBT) == 0) {
 			goto L2500;
 		}
-		f = FALSE_;
+		f = false;
 		rspeak_(580, objcts_1.odesc2[prsvec_1.prso - 1]);
 		f1 = put_(1);
 		if (saveh != play_1.here) {

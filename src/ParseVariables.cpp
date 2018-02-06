@@ -8,41 +8,12 @@
 
 pv_t pv_;
 
-#define pv_1 pv_
-#define pvec ((int *)&pv_1)
-#define objvec ((int *)&pv_1 + 1)
-#define prpvec ((int *)&pv_1 + 3)
-
 syntax_t syntax_;
-
-#define syntax_1 syntax_
-#define syn ((int *)&syntax_1)
-
-/* Object flags (objflg) */
-
-#define VABIT (16384)
-#define VRBIT (8192)
-#define VTBIT (4096)
-#define VCBIT (2048)
-#define VEBIT (1024)
-#define VFBIT (512)
-#define VPMASK (511)
-
-/* Syntax flags (synflg) */
-
-#define SDIR (16384)
-#define SIND (8192)
-#define SSTD (4096)
-#define SFLIP (2048)
-#define SDRIV (1024)
-#define SVMASK (511)
 
 /* BUZZ WORDS--	IGNORED IN SYNTACTIC PROCESSING */
 
 const buzvoc_t buzvoc_= {2164, 0, 4200, 0, 15160, 0, 1600, 0, 2160, 0, 32325, 0,
 29654, 0, 11800, 0, 26335, 5005, 0, 0};
-
-#define buzvoc_1 buzvoc_
 
 /* PREPOSITIONS--	MAPS PREPOSITIONS TO INDICES */
 
@@ -50,8 +21,6 @@ const prpvoc_t prpvoc_ = {24885, 28800, 1, 37180, 12800, 2, 34369, 22680, 2, 323
 24847, 2, 2400, 0, 3, 32600, 0, 4, 14960, 0, 5, 14979, 14565, 5,
 14980, 0, 5, 7023, 22400, 6, 34240, 0, 7, 34164, 8720, 8, 24240,
 0, 9, 24560, 0, 10, 24246, 0, 11};
-
-#define prpvoc_1 prpvoc_
 
 /* DIRECTIONS--	MAPS DIRECTIONS TO INDICES */
 
@@ -64,8 +33,6 @@ const dirvoc_t dirvoc_
 8969, 32000, 14336, 24860, 0, 14336, 19401, 35400, 14336, 32721,
 35412, 15360, 31021, 32320, 5120, 14960, 0, 13312, 5535, 31160,
 15360};
-
-#define dirvoc_1 dirvoc_
 
 /* ADJECTIVES--	MAPS ADJECTIVES TO OBJECT NUMBERS */
 

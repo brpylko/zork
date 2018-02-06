@@ -17,7 +17,7 @@ int rappl1_(int ri) {
 	int i;
 	int j;
 
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!USUALLY IGNORED. */
 	if (ri == 0) {
 		return ret_val;
@@ -325,7 +325,7 @@ L10000:
 
 L11000:
 	if (prsvec_1.prsa == vindex_1.walkiw) {
-		cevent_1.cflag[cindex_1.cevfor - 1] = TRUE_;
+		cevent_1.cflag[cindex_1.cevfor - 1] = true;
 	}
 	/* 						!IF WALK IN, BIRDIE. */
 	return ret_val;
@@ -361,7 +361,7 @@ L13000:
 	objcts_1.oflag1[oindex_1.candl - 1] &= ~ONBT;
 	rspeak_(47);
 	/* 						!TELL OF WINDS. */
-	cevent_1.cflag[cindex_1.cevcnd - 1] = FALSE_;
+	cevent_1.cflag[cindex_1.cevcnd - 1] = false;
 	/* 						!HALT CANDLE COUNTDOWN. */
 	return ret_val;
 
@@ -413,13 +413,13 @@ L14200:
 	/* R15--	NO-OBJS.  SEE IF EMPTY HANDED, SCORE LIGHT SHAFT. */
 
 L15000:
-	findex_1.empthf = TRUE_;
+	findex_1.empthf = true;
 	/* 						!ASSUME TRUE. */
 	i__1 = objcts_1.olnt;
 	for (i = 1; i <= i__1; ++i) {
 		/* 						!SEE IF CARRYING. */
 		if (objcts_1.oadv[i - 1] == play_1.winner) {
-			findex_1.empthf = FALSE_;
+			findex_1.empthf = false;
 		}
 		/* L15100: */
 	}
@@ -475,7 +475,7 @@ L17500:
 	/* 						!TIME TO FLY, JACK. */
 	f = moveto_(bats_1.batdrp[rnd_(9)], play_1.winner);
 	/* 						!SELECT RANDOM DEST. */
-	ret_val = FALSE_;
+	ret_val = false;
 	/* 						!INDICATE NEW DESC NEEDED. */
 	return ret_val;
 
@@ -581,7 +581,7 @@ L21600:
 L21700:
 	newsta_(oindex_1.ghost, 63, 0, 0, 0);
 	/* 						!VANISH GHOST. */
-	findex_1.lldf = TRUE_;
+	findex_1.lldf = true;
 	/* 						!OPEN GATE. */
 	return ret_val;
 
@@ -756,7 +756,7 @@ L29000:
 	}
 	rspeak_(84);
 	/* 						!GIVE HINT, */
-	findex_1.buoyf = FALSE_;
+	findex_1.buoyf = false;
 	/* 						!THEN DISABLE. */
 	return ret_val;
 

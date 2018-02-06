@@ -24,7 +24,7 @@ int vappli_(int ri) {
 	int rmk;
 	int odi2 = 0, odo2 = 0;
 
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!ASSUME WINS. */
 
 	if (prsvec_1.prso > 220) {
@@ -122,7 +122,7 @@ L5:
 	/* ALL VERB PROCESSORS RETURN HERE TO DECLARE FAILURE. */
 
 L10:
-	ret_val = FALSE_;
+	ret_val = false;
 	/* 						!LOSE. */
 	return ret_val;
 
@@ -802,7 +802,7 @@ L56000:
 	}
 	rspeak_(516);
 	/* 						!NOTHING TO FILL WITH. */
-	prsvec_1.prswon = FALSE_;
+	prsvec_1.prswon = false;
 	/* 						!YOU LOSE. */
 	return ret_val;
 
@@ -1310,7 +1310,7 @@ int clockd_() {
 	/* Local variables */
 	int i;
 
-	ret_val = FALSE_;
+	ret_val = false;
 	/* 						!ASSUME NO ACTION. */
 	i__1 = cevent_1.clnt;
 	for (i = 1; i <= i__1; ++i) {
@@ -1327,7 +1327,7 @@ int clockd_() {
 		}
 		/* 						!TIMER EXPIRED? */
 	L50:
-		ret_val = TRUE_;
+		ret_val = true;
 		cevapp_(cevent_1.cactio[i - 1]);
 		/* 						!DO ACTION. */
 	L100:

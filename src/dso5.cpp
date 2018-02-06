@@ -28,7 +28,7 @@ int opncls_(int obj, int so, int sc) {
 	int i__1;
 	int ret_val;
 
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!ASSUME WINS. */
 	if (prsvec_1.prsa == vindex_1.closew) {
 		goto L100;
@@ -38,7 +38,7 @@ int opncls_(int obj, int so, int sc) {
 		goto L50;
 	}
 	/* 						!OPEN? */
-	ret_val = FALSE_;
+	ret_val = false;
 	/* 						!LOSE */
 	return ret_val;
 
@@ -79,7 +79,7 @@ int lit_(int rm) {
 	/* Local variables */
 	int i, j, oa;
 
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!ASSUME WINS */
 	if ((rooms_1.rflag[rm - 1] & RLIGHT) != 0) {
 		return ret_val;
@@ -128,7 +128,7 @@ int lit_(int rm) {
 	L1000:
 		;
 	}
-	ret_val = FALSE_;
+	ret_val = false;
 	return ret_val;
 } /* lit_ */
 

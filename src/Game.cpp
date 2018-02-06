@@ -31,7 +31,7 @@ void game_() {
     while (true) {
 	    play_1.winner = aindex_1.player;
 	    /* 						!PLAYER MOVING. */
-	    play_1.telflg = FALSE_;
+	    play_1.telflg = false;
 	    /* 						!ASSUME NOTHING TOLD. */
 	    if (prsvec_1.prscon <= 1) {
 		    rdline_(input_1.inbuf, 1);
@@ -76,14 +76,14 @@ void game_() {
 	                    }
 	                    /* 						!VALID EXIT? */
 	                    more_output(input_1.inbuf);
-	                    play_1.telflg = TRUE_;
+	                    play_1.telflg = true;
 	                }
                     } while (strcmp(input_1.inbuf, "ECHO") != 0);
 	                rspeak_(571);
 	                /* 						!KILL THE ECHO. */
-	                findex_1.echof = TRUE_;
+	                findex_1.echof = true;
 	                objcts_1.oflag2[oindex_1.bar - 1] &= ~SCRDBT;
-	                prsvec_1.prswon = TRUE_;
+	                prsvec_1.prswon = true;
 	                /* 						!FAKE OUT PARSER. */
 	                prsvec_1.prscon = 1;
 	                /* 						!FORCE NEW INPUT. */

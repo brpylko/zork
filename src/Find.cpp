@@ -16,7 +16,7 @@ int findxt_(int dir, int rm) {
 	int i, xi;
 	int xxxflg;
 
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!ASSUME WINS. */
 	xi = rooms_1.rexit[rm - 1];
 	/* 						!FIND FIRST ENTRY. */
@@ -58,7 +58,7 @@ L110:
 		goto L100;
 	}
 L1000:
-	ret_val = FALSE_;
+	ret_val = false;
 	/* 						!YES, LOSE. */
 	return ret_val;
 } /* findxt_ */
@@ -175,14 +175,14 @@ L100:
 	goto L100;
 
 L200:
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!YES, */
 	rspeak_(y);
 	/* 						!OUT WITH IT. */
 	return ret_val;
 
 L300:
-	ret_val = FALSE_;
+	ret_val = false;
 	/* 						!NO, */
 	rspeak_(n);
 	/* 						!LIKEWISE. */

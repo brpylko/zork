@@ -89,7 +89,7 @@ void scrupd_(int n) {
 		10) {
 		return;
 	}
-	cevent_1.cflag[cindex_1.cevegh - 1] = TRUE_;
+	cevent_1.cflag[cindex_1.cevegh - 1] = true;
 	/* 						!TURN ON END GAME */
 	cevent_1.ctick[cindex_1.cevegh - 1] = 15;
 	return;

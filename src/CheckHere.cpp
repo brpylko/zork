@@ -11,7 +11,7 @@ int ghere_(int obj, int rm) {
 	/* System generated locals */
 	int ret_val;
 
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!ASSUME WINS. */
 	switch (obj - star_1.strbit) {
 	case 1:  goto L1000;

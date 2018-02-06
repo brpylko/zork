@@ -22,9 +22,6 @@
 #endif /* ! __STDC__ */
 #endif /* ! unix */
 
-#define TRUE_ (1)
-#define FALSE_ (0)
-
 #define abs(x) ((x) >= 0 ? (x) : -(x))
 #define min(a,b) ((a) <= (b) ? (a) : (b))
 #define max(a,b) ((a) >= (b) ? (a) : (b))
@@ -83,7 +80,6 @@ cyclop_(int),
 drop_(int),
 findxt_(int, int),
 ghere_(int, int),
-init_(void),
 lightp_(int),
 lit_(int),
 moveto_(int, int),
@@ -110,5 +106,6 @@ vappli_(int),
 walk_(),
 winnin_(int, int),
 yesno_(int, int, int);
+bool  init_(void);
 
 #endif

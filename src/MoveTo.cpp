@@ -18,7 +18,7 @@ int moveto_(int nr, int who) {
 	int lnr, nlv;
 	int bits;
 
-	ret_val = FALSE_;
+	ret_val = false;
 	/* 						!ASSUME FAILS. */
 	lhr = (rooms_1.rflag[play_1.here - 1] & RLAND) != 0;
 	lnr = (rooms_1.rflag[nr - 1] & RLAND) != 0;
@@ -58,7 +58,7 @@ L100:
 	}
 
 L500:
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!MOVE SHOULD SUCCEED. */
 	if ((rooms_1.rflag[nr - 1] & RMUNG) == 0) {
 		goto L600;

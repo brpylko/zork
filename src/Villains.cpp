@@ -64,7 +64,7 @@ int trollp_(int arg) {
 		                    ;
 	                    /* 						!YES, WAKE HIM. */
 	                    objcts_1.oflag1[oindex_1.axe - 1] |= VISIBT;
-	                    findex_1.trollf = FALSE_;
+	                    findex_1.trollf = false;
 	                    objcts_1.odesc1[oindex_1.troll - 1] = 436;
 	                    rspeak_(437);
 	                }
@@ -124,7 +124,7 @@ int cyclop_(int arg) {
 	/* Local variables */
 	int i;
 
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!ASSUME WINS. */
 	if (!findex_1.cyclof) {
 		goto L100;
@@ -136,7 +136,7 @@ int cyclop_(int arg) {
 		prsvec_1.prsa != vindex_1.attacw) {
 		goto L10;
 	}
-	findex_1.cyclof = FALSE_;
+	findex_1.cyclof = false;
 	/* 						!WAKE CYCLOPS. */
 	rspeak_(187);
 	/* 						!DESCRIBE. */
@@ -186,7 +186,7 @@ L300:
 	}
 	newsta_(prsvec_1.prso, 190, 0, 0, 0);
 	/* 						!DRINKS AND */
-	findex_1.cyclof = TRUE_;
+	findex_1.cyclof = true;
 	/* 						!FALLS ASLEEP. */
 	objcts_1.oflag2[oindex_1.cyclo - 1] = (objcts_1.oflag2[oindex_1.cyclo - 1]
 		| SLEPBT) & ~FITEBT;
@@ -196,7 +196,7 @@ L350:
 	rspeak_(191);
 	/* 						!NOT THIRSTY. */
 L10:
-	ret_val = FALSE_;
+	ret_val = false;
 	/* 						!FAILS. */
 	return ret_val;
 
@@ -260,7 +260,7 @@ int thiefp_(int arg) {
 	/* Local variables */
 	int i, j;
 
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!ASSUME WINS. */
 	if (prsvec_1.prsa != vindex_1.fightw) {
 		goto L100;
@@ -296,7 +296,7 @@ L100:
 		goto L200;
 	}
 	/* 						!DEAD? */
-	hack_1.thfact = FALSE_;
+	hack_1.thfact = false;
 	/* 						!DISABLE DEMON. */
 	objcts_1.oflag1[oindex_1.chali - 1] |= TAKEBT;
 	j = 0;
@@ -355,7 +355,7 @@ L300:
 		goto L400;
 	}
 	/* 						!OUT? */
-	hack_1.thfact = FALSE_;
+	hack_1.thfact = false;
 	/* 						!DISABLE DEMON. */
 	objcts_1.odesc1[oindex_1.thief - 1] = 504;
 	/* 						!CHANGE DESCRIPTION. */
@@ -372,7 +372,7 @@ L400:
 		rspeak_(505);
 	}
 	/* 						!CAN HERO SEE? */
-	hack_1.thfact = TRUE_;
+	hack_1.thfact = true;
 	/* 						!ENABLE DEMON. */
 	objcts_1.odesc1[oindex_1.thief - 1] = 503;
 	/* 						!CHANGE DESCRIPTION. */
@@ -435,7 +435,7 @@ L700:
 	/* 						!WAKE HIM UP. */
 	objcts_1.ocapac[oindex_1.thief - 1] = -objcts_1.ocapac[oindex_1.thief - 1]
 		;
-	hack_1.thfact = TRUE_;
+	hack_1.thfact = true;
 	objcts_1.oflag1[oindex_1.still - 1] |= VISIBT;
 	objcts_1.odesc1[oindex_1.thief - 1] = 503;
 	rspeak_(510);
@@ -463,10 +463,10 @@ L800:
 L900:
 	rspeak_(627, objcts_1.odesc2[prsvec_1.prso - 1]);
 	/* 						!THIEF ENGROSSED. */
-	findex_1.thfenf = TRUE_;
+	findex_1.thfenf = true;
 	return ret_val;
 
 L10:
-	ret_val = FALSE_;
+	ret_val = false;
 	return ret_val;
 } /* thiefp_ */

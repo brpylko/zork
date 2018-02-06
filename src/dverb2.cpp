@@ -17,7 +17,7 @@ void savegm_() {
 	int i;
 	FILE *e;
 
-	prsvec_1.prswon = FALSE_;
+	prsvec_1.prswon = false;
 	/* 						!DISABLE GAME. */
 	/* Note: save file format is different for PDP vs. non-PDP versions */
 
@@ -107,7 +107,7 @@ void rstrgm_() {
 	int i, j, k;
 	FILE *e;
 
-	prsvec_1.prswon = FALSE_;
+	prsvec_1.prswon = false;
 	/* 						!DISABLE GAME. */
 	/* Note: save file format is different for PDP vs. non-PDP versions */
 
@@ -200,7 +200,7 @@ int walk_() {
 	/* System generated locals */
 	int ret_val;
 
-	ret_val = TRUE_;
+	ret_val = true;
 	/* 						!ASSUME WINS. */
 	if (play_1.winner != aindex_1.player || lit_(play_1.here) || prob_(25,
 		25)) {
@@ -411,7 +411,7 @@ L5000:
 	/* C3- CHIMNEY FUNCTION */
 
 L3000:
-	findex_1.litldf = FALSE_;
+	findex_1.litldf = false;
 	/* 						!ASSUME HEAVY LOAD. */
 	j = 0;
 	i__1 = objcts_1.olnt;
@@ -433,7 +433,7 @@ L3000:
 		return ret_val;
 	}
 	/* 						!NO LAMP? */
-	findex_1.litldf = TRUE_;
+	findex_1.litldf = true;
 	/* 						!HE CAN DO IT. */
 	if ((objcts_1.oflag2[oindex_1.door - 1] & OPENBT) == 0) {
 		objcts_1.oflag2[oindex_1.door - 1] &= ~TCHBT;
@@ -448,7 +448,7 @@ L4000:
 		goto L2500;
 	}
 	/* 						!IF FLIPPED, GO SPIN. */
-	findex_1.frobzf = FALSE_;
+	findex_1.frobzf = false;
 	/* 						!OTHERWISE, NOT AN EXIT. */
 	return ret_val;
 
@@ -457,7 +457,7 @@ L6000:
 		goto L2500;
 	}
 	/* 						!IF FLIPPED, GO SPIN. */
-	findex_1.frobzf = TRUE_;
+	findex_1.frobzf = true;
 	/* 						!OTHERWISE, AN EXIT. */
 	return ret_val;
 
@@ -472,7 +472,7 @@ L7000:
 	/* C8-	FROBOZZ FLAG (MRGO) */
 
 L8000:
-	findex_1.frobzf = FALSE_;
+	findex_1.frobzf = false;
 	/* 						!ASSUME CANT MOVE. */
 	if (findex_1.mloc != curxt_1.xroom1) {
 		goto L8100;
@@ -531,7 +531,7 @@ L9000:
 	return ret_val;
 
 L9100:
-	findex_1.frobzf = FALSE_;
+	findex_1.frobzf = false;
 	/* 						!NOT HERE, */
 	curxt_1.xstrng = 817;
 	/* 						!LOSE. */
@@ -541,7 +541,7 @@ L9100:
 	/* C10-	FROBOZZ FLAG (MIRROR EXIT) */
 
 L10000:
-	findex_1.frobzf = FALSE_;
+	findex_1.frobzf = false;
 	/* 						!ASSUME CANT. */
 	ldir = (prsvec_1.prso - xsrch_1.xnorth) / xsrch_1.xnorth * 45;
 	/* 						!XLATE DIR TO DEGREES. */
@@ -579,7 +579,7 @@ L10200:
 	/* 						!IF S. */
 	rspeak_(818);
 	/* 						!CLOSE DOOR. */
-	findex_1.wdopnf = FALSE_;
+	findex_1.wdopnf = false;
 	ret_val = curxt_1.xroom1;
 	return ret_val;
 
@@ -596,7 +596,7 @@ L11000:
 	/* C12-	FROBZF (PUZZLE ROOM MAIN ENTRANCE) */
 
 L12000:
-	findex_1.frobzf = TRUE_;
+	findex_1.frobzf = true;
 	/* 						!ALWAYS ENTER. */
 	findex_1.cphere = 10;
 	/* 						!SET SUBSTATE. */
@@ -613,7 +613,7 @@ L13000:
 	/* C14-	FROBZF (PUZZLE ROOM TRANSITIONS) */
 
 L14000:
-	findex_1.frobzf = FALSE_;
+	findex_1.frobzf = false;
 	/* 						!ASSSUME LOSE. */
 	if (prsvec_1.prso != xsrch_1.xup) {
 		goto L14100;
@@ -631,7 +631,7 @@ L14000:
 	/* 						!LADDER HERE? */
 	rspeak_(882);
 	/* 						!YOU WIN. */
-	findex_1.frobzf = TRUE_;
+	findex_1.frobzf = true;
 	/* 						!LET HIM OUT. */
 	return ret_val;
 
@@ -640,7 +640,7 @@ L14100:
 		findex_1.cpoutf) {
 		goto L14200;
 	}
-	findex_1.frobzf = TRUE_;
+	findex_1.frobzf = true;
 	/* 						!YES, LET HIM OUT. */
 	return ret_val;
 
@@ -668,16 +668,11 @@ L14400:
 	if ((abs(j) == 1 || abs(j) == 8 || (puzzle_1.cpvec[findex_1.cphere + k -
 		1] == 0 || puzzle_1.cpvec[nxt - k - 1] == 0)) && puzzle_1.cpvec[
 			nxt - 1] == 0) {
-		goto L14500;
+		cpgoto_(nxt);
+		/* 						!MOVE TO STATE. */
+		return curxt_1.xroom1 = rindex_1.cpuzz;
+		/* 						!STAY IN ROOM. */
 	}
-	return ret_val;
-
-L14500:
-	cpgoto_(nxt);
-	/* 						!MOVE TO STATE. */
-	curxt_1.xroom1 = rindex_1.cpuzz;
-	/* 						!STAY IN ROOM. */
-	ret_val = curxt_1.xroom1;
 	return ret_val;
 
 } /* cxappl_ */

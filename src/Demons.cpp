@@ -101,7 +101,7 @@ void fightd_() {
 		f = oappli_(ra, 0);
 	L2300:
 		if (obj == oindex_1.thief) {
-			findex_1.thfenf = FALSE_;
+			findex_1.thfenf = false;
 		}
 		/* 						!TURN OFF ENGROSSED. */
 		advs_1.aflag[aindex_1.player - 1] &= ~aflags_1.astag;
@@ -491,7 +491,7 @@ L4500:
 		goto L4600;
 	}
 	cevent_1.ctick[cindex_1.cevcur - 1] = 30;
-	cevent_1.cflag[cindex_1.cevcur - 1] = TRUE_;
+	cevent_1.cflag[cindex_1.cevcur - 1] = true;
 L4600:
 	if (fights_(h, 1) > 0) {
 		return ret_val;
@@ -564,7 +564,7 @@ L300:
 	return;
 
 L500:
-	hack_1.swdact = FALSE_;
+	hack_1.swdact = false;
 	/* 						!DROPPED SWORD, */
 	return;
 	/* 						!DISABLE DEMON. */
