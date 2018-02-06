@@ -29,7 +29,7 @@ int ballop_(int arg) {
 	/* 						!NO. */
 	goto L100;
 L50:
-	rspsub_(544, objcts_1.odesc2[findex_1.binff - 1]);
+	rspeak_(544, objcts_1.odesc2[findex_1.binff - 1]);
 	/* 						!YES. */
 L100:
 	if (findex_1.btief != 0) {
@@ -80,7 +80,7 @@ L300:
 	if (prsvec_1.prsa != vindex_1.takew || prsvec_1.prso != findex_1.binff) {
 		goto L350;
 	}
-	rspsub_(548, objcts_1.odesc2[findex_1.binff - 1]);
+	rspeak_(548, objcts_1.odesc2[findex_1.binff - 1]);
 	/* 						!RECEP CONT TOO HOT. */
 	return ret_val;
 
@@ -108,7 +108,7 @@ L600:
 		oindex_1.recep) {
 		goto L700;
 	}
-	rspsub_(550, objcts_1.odesc2[prsvec_1.prso - 1]);
+	rspeak_(550, objcts_1.odesc2[prsvec_1.prso - 1]);
 	/* 						!LIGHT FIRE IN RECEP. */
 	cevent_1.ctick[cindex_1.cevbrn - 1] = objcts_1.osize[prsvec_1.prso - 1] *
 		20;

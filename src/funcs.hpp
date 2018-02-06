@@ -29,10 +29,6 @@
 #define min(a,b) ((a) <= (b) ? (a) : (b))
 #define max(a,b) ((a) >= (b) ? (a) : (b))
 
-int
-is_protected(),
-wizard();
-
 void
 more_init(),
 more_output(const char *),
@@ -57,9 +53,7 @@ orphan_(int, int, int, int, int),
 princo_(int, int),
 princr_(int, int),
 rdline_(char *, int),
-rspeak_(int),
-rspsb2_(int, int, int),
-rspsub_(int, int),
+rspeak_(int n, int y = 0, int z = 0, int l = 1),
 rstrgm_(),
 savegm_(),
 score_(int),

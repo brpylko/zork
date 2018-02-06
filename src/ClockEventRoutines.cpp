@@ -341,7 +341,7 @@ L7200:
 	findex_1.binff = 0;
 	/* 						!UNINFLATED. */
 	if (play_1.here == state_1.bloc) {
-		rspsub_(292, objcts_1.odesc2[i - 1]);
+		rspeak_(292, objcts_1.odesc2[i - 1]);
 	}
 	/* 						!DESCRIBE. */
 	return;
@@ -774,7 +774,7 @@ static void litint_(int obj, int* ctr, int cev, const int* ticks, int tickln) {
 		ONBT);
 	if (objcts_1.oroom[obj - 1] == play_1.here || objcts_1.oadv[obj - 1] ==
 		play_1.winner) {
-		rspsub_(293, objcts_1.odesc2[obj - 1]);
+		rspeak_(293, objcts_1.odesc2[obj - 1]);
 	}
 	return;
 

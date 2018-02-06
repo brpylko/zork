@@ -273,7 +273,7 @@ int sparse_(const int* lbuf, int llnt, int vbflag) {
 			goto L6200;
 		}
 		if (vbflag) {
-			rspsub_(620, objcts_1.odesc2[advs_1.avehic[play_1.winner - 1]
+			rspeak_(620, objcts_1.odesc2[advs_1.avehic[play_1.winner - 1]
 				- 1]);
 		}
 		return ret_val;
@@ -361,7 +361,7 @@ L9000:
 	}
 	/* 						!ANY DIRECT OBJECT? */
 	if (vbflag) {
-		rspsub_(621, objcts_1.odesc2[pv_1.o1 - 1]);
+		rspeak_(621, objcts_1.odesc2[pv_1.o1 - 1]);
 	}
 	/* 						!WHAT TO DO? */
 	orphan_(-1, 0, pv_1.o1, 0, 0);

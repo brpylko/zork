@@ -37,7 +37,7 @@ int trollp_(int arg) {
 		                                return false;
 	                                }/*!NO OBJECT? */
 	                                /*throw or give*/
-	                                rspsub_(prsvec_1.prsa != vindex_1.givew ? 440 : 441, objcts_1.odesc2[prsvec_1.prso - 1]);
+	                                rspeak_(prsvec_1.prsa != vindex_1.givew ? 440 : 441, objcts_1.odesc2[prsvec_1.prso - 1]);
 	                                /* 						!TROLL TAKES. */
 	                                if (prsvec_1.prso == oindex_1.knife) {
 	                                    rspeak_(443);
@@ -320,7 +320,7 @@ L100:
 			goto L135;
 		}
 		objcts_1.oflag1[i - 1] |= VISIBT;
-		rspsub_(j, objcts_1.odesc2[i - 1]);
+		rspeak_(j, objcts_1.odesc2[i - 1]);
 		/* 						!DESCRIBE. */
 		j = 502;
 		goto L150;
@@ -457,11 +457,11 @@ L800:
 		goto L900;
 	}
 	/* 						!A TREASURE? */
-	rspsub_(512, objcts_1.odesc2[prsvec_1.prso - 1]);
+	rspeak_(512, objcts_1.odesc2[prsvec_1.prso - 1]);
 	return ret_val;
 
 L900:
-	rspsub_(627, objcts_1.odesc2[prsvec_1.prso - 1]);
+	rspeak_(627, objcts_1.odesc2[prsvec_1.prso - 1]);
 	/* 						!THIEF ENGROSSED. */
 	findex_1.thfenf = TRUE_;
 	return ret_val;

@@ -510,7 +510,7 @@ L27200:
 	return ret_val;
 
 L27500:
-	rspsub_(299, odi2);
+	rspeak_(299, odi2);
 	/* 						!NOT WITH THAT. */
 	return ret_val;
 
@@ -645,7 +645,7 @@ L31400:
 	return ret_val;
 
 L31500:
-	rspsub_(300, odi2);
+	rspeak_(300, odi2);
 	/* 						!CANT TURN WITH THAT. */
 	return ret_val;
 
@@ -673,7 +673,7 @@ L33000:
 	return ret_val;
 
 L33100:
-	rspsub_(301, odi2);
+	rspeak_(301, odi2);
 	/* 						!CANT WITH THAT. */
 	return ret_val;
 
@@ -763,7 +763,7 @@ L36200:
 	if (prsvec_1.prsi != oindex_1.lungs) {
 		i = 303;
 	}
-	rspsub_(i, odi2);
+	rspeak_(i, odi2);
 	return ret_val;
 
 	/* O23--	DEFLATED BOAT */
@@ -941,7 +941,7 @@ L44000:
 		goto L44100;
 	}
 	/* 						!TREASURE? */
-	rspsub_(257, odo2);
+	rspeak_(257, odo2);
 	/* 						!YES, GET DOOR. */
 	newsta_(prsvec_1.prso, 0, 0, 0, 0);
 	newsta_(oindex_1.gnome, 0, 0, 0, 0);
@@ -950,7 +950,7 @@ L44000:
 	return ret_val;
 
 L44100:
-	rspsub_(258, odo2);
+	rspeak_(258, odo2);
 	/* 						!NO, LOSE OBJECT. */
 	newsta_(prsvec_1.prso, 0, 0, 0, 0);
 	return ret_val;
@@ -987,7 +987,7 @@ L53000:
 	/* 						!GIVE? */
 	newsta_(prsvec_1.prso, 0, 0, 0, aindex_1.arobot);
 	/* 						!PUT ON ROBOT. */
-	rspsub_(302, odo2);
+	rspeak_(302, odo2);
 	return ret_val;
 
 L53200:

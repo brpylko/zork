@@ -42,7 +42,7 @@ void princr_(int full, int rm) {
 		/* DO SHORT DESCRIPTION OF OBJECT. */
 
 	L200:
-		rspsub_(j, objcts_1.odesc2[i - 1]);
+		rspeak_(j, objcts_1.odesc2[i - 1]);
 		/* 						!YOU CAN SEE IT. */
 		j = 502;
 
@@ -112,9 +112,9 @@ void invent_(int adv) {
 			VISIBT) == 0) {
 			goto L10;
 		}
-		rspsub_(i, objcts_1.odesc2[advs_1.aobj[adv - 1] - 1]);
+		rspeak_(i, objcts_1.odesc2[advs_1.aobj[adv - 1] - 1]);
 		i = 0;
-		rspsub_(502, objcts_1.odesc2[j - 1]);
+		rspeak_(502, objcts_1.odesc2[j - 1]);
 	L10:
 		;
 	}
@@ -159,13 +159,13 @@ void princo_(int obj, int desc) {
 	/* Local variables */
 	int i;
 
-	rspsub_(desc, objcts_1.odesc2[obj - 1]);
+	rspeak_(desc, objcts_1.odesc2[obj - 1]);
 	/* 						!PRINT HEADER. */
 	i__1 = objcts_1.olnt;
 	for (i = 1; i <= i__1; ++i) {
 		/* 						!LOOP THRU. */
 		if (objcts_1.ocan[i - 1] == obj) {
-			rspsub_(502, objcts_1.odesc2[i - 1]);
+			rspeak_(502, objcts_1.odesc2[i - 1]);
 		}
 		/* L100: */
 	}

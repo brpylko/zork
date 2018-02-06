@@ -318,7 +318,7 @@ L1400:
 			VISIBT + TAKEBT) {
 			goto L1450;
 		}
-		rspsub_(590, objcts_1.odesc2[i - 1]);
+		rspeak_(590, objcts_1.odesc2[i - 1]);
 		/* 						!TAKE OBJECT. */
 		if (prob_(40, 20)) {
 			goto L1700;

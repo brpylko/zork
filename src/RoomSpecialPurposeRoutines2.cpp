@@ -144,7 +144,7 @@ L46000:
 	rspeak_(i);
 	/* 						!DESCRIBE POLE. */
 	i__1 = findex_1.mdir / 45 + 695;
-	rspsub_(694, i__1);
+	rspeak_(694, i__1);
 	/* 						!DESCRIBE ARROW. */
 	return ret_val;
 	/* RAPPL2, PAGE 4 */
@@ -167,7 +167,7 @@ L47000:
 	}
 	i = 703;
 L47200:
-	rspsub_(i, objcts_1.odesc2[j - 1]);
+	rspeak_(i, objcts_1.odesc2[j - 1]);
 	/* 						!DESCRIBE BEAM. */
 	lookto_(rindex_1.mra, 0, 0, 0, 0);
 	/* 						!LOOK NORTH. */
@@ -185,7 +185,7 @@ L48000:
 	if ((objcts_1.oflag2[oindex_1.tomb - 1] & OPENBT) != 0) {
 		i = 12;
 	}
-	rspsub_(705, i);
+	rspeak_(705, i);
 	return ret_val;
 
 	/* R49--	SOUTH CORRIDOR */
@@ -203,7 +203,7 @@ L49000:
 		i = 12;
 	}
 	if (findex_1.lcell == 4) {
-		rspsub_(707, i);
+		rspeak_(707, i);
 	}
 	/* 						!DESCRIBE ODOOR IF THERE. */
 	return ret_val;
@@ -230,7 +230,7 @@ L50100:
 	if ((objcts_1.oflag2[oindex_1.qdoor - 1] & OPENBT) != 0) {
 		i = 12;
 	}
-	rspsub_(708, i);
+	rspeak_(708, i);
 	return ret_val;
 	/* RAPPL2, PAGE 5 */
 
@@ -258,7 +258,7 @@ L51000:
 	if ((objcts_1.oflag2[oindex_1.qdoor - 1] & OPENBT) != 0) {
 		j = 12;
 	}
-	rspsb2_(710, i, j);
+	rspeak_(710, i, j);
 	return ret_val;
 
 	/* R52--	NORTH CORRIDOR */
@@ -273,7 +273,7 @@ L52000:
 		i = 12;
 	}
 	/* 						!CDOOR IS OPEN/CLOSED. */
-	rspsub_(711, i);
+	rspeak_(711, i);
 	return ret_val;
 
 	/* R53--	PARAPET */
@@ -281,7 +281,7 @@ L52000:
 L53000:
 	if (prsvec_1.prsa == vindex_1.lookw) {
 		i__1 = findex_1.pnumb + 712;
-		rspsub_(712, i__1);
+		rspeak_(712, i__1);
 	}
 	return ret_val;
 
@@ -304,7 +304,7 @@ L54000:
 		i = 12;
 	}
 	if (findex_1.lcell == 4) {
-		rspsub_(723, i);
+		rspeak_(723, i);
 	}
 	/*						!DESCRIBE. */
 	return ret_val;
@@ -330,7 +330,7 @@ L56000:
 	if ((objcts_1.oflag2[oindex_1.odoor - 1] & OPENBT) != 0) {
 		i = 12;
 	}
-	rspsub_(725, i);
+	rspeak_(725, i);
 	return ret_val;
 	/* RAPPL2, PAGE 6 */
 
@@ -358,7 +358,7 @@ L58000:
 	if ((objcts_1.oflag2[oindex_1.tomb - 1] & OPENBT) != 0) {
 		i = 12;
 	}
-	rspsub_(792, i);
+	rspeak_(792, i);
 	return ret_val;
 
 	/* R59--	PUZZLE SIDE ROOM */
@@ -437,9 +437,9 @@ static void lookto_(int nrm, int srm, int nt, int st, int ht) {
 		goto L100;
 	}
 	/* 						!MIRROR N-S? */
-	rspsub_(847, dir);
+	rspeak_(847, dir);
 	/* 						!YES, HE SEES PANEL */
-	rspsb2_(848, dir, dir);
+	rspeak_(848, dir, dir);
 	/* 						!AND NARROW ROOMS. */
 	goto L200;
 
@@ -452,7 +452,7 @@ L100:
 		mrbf = 1;
 	}
 	i__1 = mrbf + 849;
-	rspsub_(i__1, dir);
+	rspeak_(i__1, dir);
 	/* 						!DESCRIBE. */
 	if (m1 == 1 && findex_1.mropnf) {
 		i__1 = mrbf + 823;

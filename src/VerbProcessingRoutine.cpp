@@ -152,7 +152,7 @@ L18100:
 	if ((objcts_1.oflag1[prsvec_1.prsi - 1] & TRANBT) != 0) {
 		goto L18200;
 	}
-	rspsub_(357, odi2);
+	rspeak_(357, odi2);
 	/* 						!NOT TRANSPARENT. */
 	return ret_val;
 
@@ -160,7 +160,7 @@ L18200:
 	if ((objcts_1.oflag1[prsvec_1.prso - 1] & READBT) != 0) {
 		goto L18300;
 	}
-	rspsub_(358, odo2);
+	rspeak_(358, odo2);
 	/* 						!NOT READABLE. */
 	return ret_val;
 
@@ -174,7 +174,7 @@ L18300:
 
 L20000:
 	if (!objact_()) {
-		rspsub_(361, odo2);
+		rspeak_(361, odo2);
 	}
 	return ret_val;
 
@@ -208,7 +208,7 @@ L24000:
 	return ret_val;
 
 L24100:
-	rspsub_(370, odo2);
+	rspeak_(370, odo2);
 	/* 						!JOKE. */
 	return ret_val;
 
@@ -231,7 +231,7 @@ L26000:
 
 L27000:
 	if (!objact_()) {
-		rspsb2_(378, odo2, rmk);
+		rspeak_(378, odo2, rmk);
 	}
 	return ret_val;
 
@@ -239,7 +239,7 @@ L27000:
 
 L28000:
 	if (!objact_()) {
-		rspsb2_(379, odo2, rmk);
+		rspeak_(379, odo2, rmk);
 	}
 	return ret_val;
 
@@ -248,7 +248,7 @@ L28000:
 L29000:
 L30000:
 	if (!objact_()) {
-		rspsb2_(380, odo2, rmk);
+		rspeak_(380, odo2, rmk);
 	}
 	return ret_val;
 
@@ -256,7 +256,7 @@ L30000:
 
 L31000:
 	if (!objact_()) {
-		rspsb2_(381, odo2, rmk);
+		rspeak_(381, odo2, rmk);
 	}
 	return ret_val;
 
@@ -264,7 +264,7 @@ L31000:
 
 L32000:
 	if (!objact_()) {
-		rspsb2_(382, odo2, rmk);
+		rspeak_(382, odo2, rmk);
 	}
 	return ret_val;
 	/* VAPPLI, PAGE 5 */
@@ -296,7 +296,7 @@ L34000:
 
 L34100:
 	if (!objact_()) {
-		rspsub_(386, odo2);
+		rspeak_(386, odo2);
 	}
 	/* 						!JOKE. */
 	return ret_val;
@@ -307,7 +307,7 @@ L35000:
 	if ((objcts_1.oflag2[prsvec_1.prsi - 1] & TIEBT) != 0) {
 		goto L35100;
 	}
-	rspsub_(387, odo2);
+	rspeak_(387, odo2);
 	/* 						!NOT TIEABLE. */
 	return ret_val;
 
@@ -317,7 +317,7 @@ L35100:
 	if ((objcts_1.oflag2[prsvec_1.prso - 1] & VILLBT) == 0) {
 		i = 389;
 	}
-	rspsub_(i, odo2);
+	rspeak_(i, odo2);
 	/* 						!JOKE. */
 	return ret_val;
 
@@ -335,7 +335,7 @@ L36100:
 	if ((objcts_1.oflag1[prsvec_1.prsi - 1] & TOOLBT) != 0) {
 		goto L36200;
 	}
-	rspsub_(391, odi2);
+	rspeak_(391, odi2);
 	/* 						!NOT A TOOL. */
 	return ret_val;
 
@@ -364,7 +364,7 @@ L39000:
 	if ((objcts_1.oflag1[prsvec_1.prso - 1] & DOORBT) == 0) {
 		i = 395;
 	}
-	rspsub_(i, odo2);
+	rspeak_(i, odo2);
 	/* 						!JOKE FOR NONDOORS TOO. */
 	return ret_val;
 
@@ -402,7 +402,7 @@ L41500:
 	}
 	/* 						!OUTPUT IF THERE, */
 	if (i == 0) {
-		rspsub_(429, odo2);
+		rspeak_(429, odo2);
 	}
 	/* 						!OTHERWISE DEFAULT. */
 	prsvec_1.prsa = vindex_1.foow;
@@ -432,12 +432,12 @@ L42100:
 		goto L42300;
 	}
 	/* 						!OPEN?  SPILL. */
-	rspsub_(396, odo2);
+	rspeak_(396, odo2);
 	/* 						!NO, DESCRIBE NOISE. */
 	return ret_val;
 
 L42300:
-	rspsub_(397, odo2);
+	rspeak_(397, odo2);
 	/* 						!SPILL THE WORKS. */
 	i__1 = objcts_1.olnt;
 	for (i = 1; i <= i__1; ++i) {
@@ -479,7 +479,7 @@ L43000:
 	if (qhere_(prsvec_1.prso, play_1.here)) {
 		i = 399;
 	}
-	rspsub_(i, odo2);
+	rspeak_(i, odo2);
 	/* 						!JOKE. */
 	return ret_val;
 	/* VAPPLI, PAGE 6 */
@@ -511,7 +511,7 @@ L44100:
 
 L44200:
 	objcts_1.oflag1[prsvec_1.prso - 1] |= ONBT;
-	rspsub_(404, odo2);
+	rspeak_(404, odo2);
 L44300:
 	if (!f && lit_(play_1.here)) {
 		f = rmdesc_(0);
@@ -544,7 +544,7 @@ L45100:
 
 L45200:
 	objcts_1.oflag1[prsvec_1.prso - 1] &= ~ONBT;
-	rspsub_(405, odo2);
+	rspeak_(405, odo2);
 L45300:
 	if (!lit_(play_1.here)) {
 		rspeak_(406);
@@ -563,7 +563,7 @@ L46000:
 		goto L46100;
 	}
 L46050:
-	rspsub_(407, odo2);
+	rspeak_(407, odo2);
 	/* 						!NOT OPENABLE. */
 	return ret_val;
 
@@ -571,7 +571,7 @@ L46100:
 	if (objcts_1.ocapac[prsvec_1.prso - 1] != 0) {
 		goto L46200;
 	}
-	rspsub_(408, odo2);
+	rspeak_(408, odo2);
 	/* 						!NOT OPENABLE. */
 	return ret_val;
 
@@ -611,7 +611,7 @@ L47000:
 	if (objcts_1.ocapac[prsvec_1.prso - 1] != 0) {
 		goto L47100;
 	}
-	rspsub_(411, odo2);
+	rspeak_(411, odo2);
 	/* 						!NOT CLOSABLE. */
 	return ret_val;
 
@@ -669,14 +669,14 @@ L48000:
 	/* 						!NOT HERE OR ON PERSON. */
 	i = 418;
 L48100:
-	rspsub_(i, objcts_1.odesc2[j - 1]);
+	rspeak_(i, objcts_1.odesc2[j - 1]);
 	/* 						!DESCRIBE FINDINGS. */
 	return ret_val;
 
 L48200:
 	i = 416;
 L48300:
-	rspsub_(i, odo2);
+	rspeak_(i, odo2);
 	/* 						!DESCRIBE FINDINGS. */
 	return ret_val;
 
@@ -710,7 +710,7 @@ L51000:
 	if ((objcts_1.oflag2[prsvec_1.prso - 1] & VEHBT) != 0) {
 		goto L51100;
 	}
-	rspsub_(421, odo2);
+	rspeak_(421, odo2);
 	/* 						!NOT VEHICLE, JOKE. */
 	return ret_val;
 
@@ -719,7 +719,7 @@ L51100:
 		goto L51200;
 	}
 	/* 						!HERE? */
-	rspsub_(420, odo2);
+	rspeak_(420, odo2);
 	/* 						!NO, JOKE. */
 	return ret_val;
 
@@ -728,7 +728,7 @@ L51200:
 		goto L51300;
 	}
 	/* 						!ALREADY GOT ONE? */
-	rspsub_(422, odo2);
+	rspeak_(422, odo2);
 	/* 						!YES, JOKE. */
 	return ret_val;
 
@@ -737,7 +737,7 @@ L51300:
 		return ret_val;
 	}
 	/* 						!OBJ HANDLE? */
-	rspsub_(423, odo2);
+	rspeak_(423, odo2);
 	/* 						!DESCRIBE. */
 	advs_1.avehic[play_1.winner - 1] = prsvec_1.prso;
 	if (play_1.winner != aindex_1.player) {
@@ -815,7 +815,7 @@ L56050:
 	}
 	/* 						!OBJ HANDLE? */
 	if (prsvec_1.prsi != oindex_1.gwate && prsvec_1.prsi != oindex_1.water) {
-		rspsb2_(444, odi2, odo2);
+		rspeak_(444, odi2, odo2);
 	}
 	return ret_val;
 
@@ -840,7 +840,7 @@ L59000:
 	}
 	/* 						!YES, ON WINNER? */
 L59100:
-	rspsub_(454, odo2);
+	rspeak_(454, odo2);
 	/* 						!NOT ACCESSIBLE. */
 	return ret_val;
 
@@ -885,7 +885,7 @@ L59500:
 	return ret_val;
 
 L59600:
-	rspsub_(453, odo2);
+	rspeak_(453, odo2);
 	/* 						!NOT FOOD OR DRINK. */
 	return ret_val;
 
@@ -917,7 +917,7 @@ L60050:
 		goto L60100;
 	}
 	/* 						!CARRYING IT? */
-	rspsub_(459, odo2);
+	rspeak_(459, odo2);
 	jigsup_(460);
 	return ret_val;
 
@@ -944,18 +944,18 @@ L60150:
 	return ret_val;
 
 L60200:
-	rspsub_(462, odo2);
+	rspeak_(462, odo2);
 	/* 						!BURN IT. */
 	newsta_(prsvec_1.prso, 0, 0, 0, 0);
 	return ret_val;
 
 L60300:
-	rspsub_(463, odo2);
+	rspeak_(463, odo2);
 	/* 						!CANT BURN IT. */
 	return ret_val;
 
 L60400:
-	rspsub_(301, odi2);
+	rspeak_(301, odi2);
 	/* 						!CANT BURN IT WITH THAT. */
 	return ret_val;
 	/* VAPPLI, PAGE 9 */
@@ -969,7 +969,7 @@ L63000:
 		goto L66100;
 	}
 	if (!objact_()) {
-		rspsb2_(466, odo2, rmk);
+		rspeak_(466, odo2, rmk);
 	}
 	return ret_val;
 
@@ -1018,7 +1018,7 @@ L66200:
 		goto L66300;
 	}
 	if ((objcts_1.oflag1[prsvec_1.prso - 1] & VICTBT) == 0) {
-		rspsub_(470, odo2);
+		rspeak_(470, odo2);
 	}
 	return ret_val;
 
@@ -1045,7 +1045,7 @@ L66400:
 	j = 472;
 	/* 						!NOT A WEAPON. */
 L66500:
-	rspsb2_(i, odo2, j);
+	rspeak_(i, odo2, j);
 	/* 						!JOKE. */
 	return ret_val;
 	/* VAPPLI, PAGE 10 */
@@ -1158,7 +1158,7 @@ L80300:
 		ACTRBT) == 0) {
 		i = 355;
 	}
-	rspsub_(i, odo2);
+	rspeak_(i, odo2);
 	/* 						!HELLO THERE */
 	/* 						! */
 	return ret_val;
@@ -1177,12 +1177,12 @@ L81000:
 		goto L81200;
 	}
 	/* 						!OPEN? */
-	rspsub_(628, odo2);
+	rspeak_(628, odo2);
 	/* 						!OPEN DOOR- UNINTERESTING. */
 	return ret_val;
 
 L81200:
-	rspsub_(525, odo2);
+	rspeak_(525, odo2);
 	/* 						!CLOSED DOOR- CANT SEE. */
 	return ret_val;
 
@@ -1197,7 +1197,7 @@ L81300:
 	if ((objcts_1.oflag1[prsvec_1.prso - 1] & CONTBT) != 0) {
 		goto L81200;
 	}
-	rspsub_(630, odo2);
+	rspeak_(630, odo2);
 	/* 						!CANT LOOK INSIDE. */
 	return ret_val;
 
@@ -1211,7 +1211,7 @@ L81400:
 	return ret_val;
 
 L81500:
-	rspsub_(629, odo2);
+	rspeak_(629, odo2);
 	/* 						!EMPTY. */
 	return ret_val;
 
@@ -1248,7 +1248,7 @@ L83100:
 
 L84000:
 	if (!objact_()) {
-		rspsub_(634, odo2);
+		rspeak_(634, odo2);
 	}
 	/* 						!OBJ HANDLE? */
 	return ret_val;

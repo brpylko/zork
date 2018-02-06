@@ -4,7 +4,8 @@
 /* ALL RIGHTS RESERVED, COMMERCIAL USAGE STRICTLY PROHIBITED */
 /* WRITTEN BY R. M. SUPNIK */
 
-#include <stdio.h>
+#include <cstdio>
+#include <cstdlib>
 
 #ifdef __AMOS__
 #include <amos.h>
@@ -12,10 +13,6 @@
 
 #include "funcs.hpp"
 #include "vars.hpp"
-
-/* This is here to avoid depending on the existence of <stdlib.h> */
-
-extern void srand(unsigned int);
 
 FILE *dbfile;
 
@@ -94,12 +91,7 @@ int init_() {
 	int mmax, omax, rmax, vmax, amax, cmax, fmax, smax;
 
 	more_init();
-
-	/* FIRST CHECK FOR PROTECTION VIOLATION */
-
-	if (is_protected()) {
-		goto L10000;
-	}
+	goto L10000;
 	/* 						!PROTECTION VIOLATION? */
 	more_output("There appears before you a threatening figure clad all over");
 	more_output("in heavy black armor.  His legs seem like the massive trunk");
@@ -305,10 +297,7 @@ L10000:
 
 	/* allow setting gdtflg true if user id matches wizard id */
 	/* this way, the wizard doesn't have to recompile to use gdt */
-
-	if (wizard()) {
-		debug_1.gdtflg = 1;
-	}
+	debug_1.gdtflg = 1;
 
 #endif /* ALLOW_GDT */
 

@@ -419,7 +419,7 @@ L17300:
 		i = 670;
 	}
 	/* 						!SPECIAL JOKE FOR SCOL. */
-	rspsub_(i, odo2);
+	rspeak_(i, odo2);
 	return ret_val;
 
 L17400:
@@ -490,7 +490,7 @@ L19200:
 		== play_1.winner) {
 		goto L19300;
 	}
-	rspsub_(364, odi2);
+	rspeak_(364, odi2);
 	/* 						!NO, JOKE. */
 	return ret_val;
 
@@ -517,7 +517,7 @@ L20000:
 	if ((objcts_1.oflag1[prsvec_1.prso - 1] & TOOLBT) == 0) {
 		i = 393;
 	}
-	rspsub_(i, odo2);
+	rspeak_(i, odo2);
 	return ret_val;
 
 	/* V90--	TIME.  PRINT OUT DURATION OF GAME. */
@@ -563,7 +563,7 @@ L22100:
 	if ((objcts_1.oflag2[prsvec_1.prso - 1] & VILLBT) == 0) {
 		goto L22300;
 	}
-	rspsub_(448, odo2);
+	rspeak_(448, odo2);
 	/* 						!CANT JUMP VILLAIN. */
 	return ret_val;
 
@@ -619,7 +619,7 @@ L24000:
 		goto L24200;
 	}
 	/* 						!GOT KEYS? */
-	rspsub_(465, odi2);
+	rspeak_(465, odi2);
 	/* 						!NO, JOKE. */
 	return ret_val;
 

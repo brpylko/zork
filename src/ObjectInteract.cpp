@@ -122,7 +122,7 @@ int drop_(int z) {
 	if ((objcts_1.oflag2[x - 1] & OPENBT) != 0) {
 		goto L300;
 	}
-	rspsub_(525, objcts_1.odesc2[x - 1]);
+	rspeak_(525, objcts_1.odesc2[x - 1]);
 	/* 						!CANT REACH. */
 	return ret_val;
 
@@ -172,7 +172,7 @@ L400:
 	if (i != 0 && play_1.here == rindex_1.mtree) {
 		i = 659;
 	}
-	rspsub_(i, objcts_1.odesc2[prsvec_1.prso - 1]);
+	rspeak_(i, objcts_1.odesc2[prsvec_1.prso - 1]);
 	return ret_val;
 
 L1000:
@@ -239,7 +239,7 @@ L500:
 		goto L600;
 	}
 	/* 						!ALREADY INSIDE. */
-	rspsb2_(564, objcts_1.odesc2[prsvec_1.prso - 1], objcts_1.odesc2[
+	rspeak_(564, objcts_1.odesc2[prsvec_1.prso - 1], objcts_1.odesc2[
 		prsvec_1.prsi - 1]);
 	ret_val = TRUE_;
 	return ret_val;
@@ -299,7 +299,7 @@ L800:
 		goto L900;
 	}
 	/* 						!OPEN? */
-	rspsub_(566, objcts_1.odesc2[prsvec_1.prso - 1]);
+	rspeak_(566, objcts_1.odesc2[prsvec_1.prso - 1]);
 	/* 						!LOSE. */
 	return ret_val;
 
@@ -369,7 +369,7 @@ void valuac_(int v) {
 			goto L500;
 		}
 		f = FALSE_;
-		rspsub_(580, objcts_1.odesc2[prsvec_1.prso - 1]);
+		rspeak_(580, objcts_1.odesc2[prsvec_1.prso - 1]);
 		f1 = take_(1);
 		if (saveh != play_1.here) {
 			return;
@@ -391,7 +391,7 @@ L1000:
 			goto L1500;
 		}
 		f = FALSE_;
-		rspsub_(580, objcts_1.odesc2[prsvec_1.prso - 1]);
+		rspeak_(580, objcts_1.odesc2[prsvec_1.prso - 1]);
 		f1 = drop_(1);
 		if (saveh != play_1.here) {
 			return;
@@ -416,7 +416,7 @@ L2000:
 			goto L2500;
 		}
 		f = FALSE_;
-		rspsub_(580, objcts_1.odesc2[prsvec_1.prso - 1]);
+		rspeak_(580, objcts_1.odesc2[prsvec_1.prso - 1]);
 		f1 = put_(1);
 		if (saveh != play_1.here) {
 			return;

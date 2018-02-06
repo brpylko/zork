@@ -14,41 +14,15 @@
 
 extern FILE *dbfile;
 
-static void rspsb2nl_(int, int, int, int);
-
 /* RSPEAK-- OUTPUT RANDOM MESSAGE ROUTINE */
 
 /* CALLED BY-- */
 
 /* 	CALL RSPEAK(MSGNUM) */
 
-void rspeak_(int n) {
-	rspsb2nl_(n, 0, 0, 1);
-} /* rspeak_ */
-
-/* RSPSUB-- OUTPUT RANDOM MESSAGE WITH SUBSTITUTABLE ARGUMENT */
-
-/* CALLED BY-- */
-
-/* 	CALL RSPSUB(MSGNUM,SUBNUM) */
-
-void rspsub_(int n, int s1) {
-	rspsb2nl_(n, s1, 0, 1);
-} /* rspsub_ */
-
-/* RSPSB2-- OUTPUT RANDOM MESSAGE WITH UP TO TWO SUBSTITUTABLE ARGUMENTS */
-
-/* CALLED BY-- */
-
-/* 	CALL RSPSB2(MSGNUM,SUBNUM1,SUBNUM2) */
-
-void rspsb2_(int n, int s1, int s2) {
-	rspsb2nl_(n, s1, s2, 1);
-} /* rspsb2_ */
-
 /* rspsb2nl_ Display a substitutable message with an optional newline */
 
-static void rspsb2nl_(int n, int y, int z, int nl) {
+void rspeak_(int n, int y, int z, int nl) {
 	const char *zkey = "IanLanceTaylorJr";
 	long x;
 
@@ -95,7 +69,7 @@ static void rspsb2nl_(int n, int y, int z, int nl) {
 			long iloc;
 
 			iloc = ftell(dbfile);
-			rspsb2nl_(y, 0, 0, 0);
+			rspeak_(y, 0, 0, 0);
 			if (fseek(dbfile, iloc, SEEK_SET) == EOF) {
 				fprintf(stderr, "Error seeking database loc %ld\n", iloc);
 				exit_();
@@ -230,7 +204,7 @@ void jigsup_(int desc) {
 		goto L100;
 	}
 	/* 						!HIMSELF? */
-	rspsub_(432, objcts_1.odesc2[advs_1.aobj[play_1.winner - 1] - 1]);
+	rspeak_(432, objcts_1.odesc2[advs_1.aobj[play_1.winner - 1] - 1]);
 	/* 						!NO, SAY WHO DIED. */
 	newsta_(advs_1.aobj[play_1.winner - 1], 0, 0, 0, 0);
 	/* 						!SEND TO HYPER SPACE. */
@@ -371,25 +345,17 @@ L1100:
 
 int oactor_(int obj) {
 	/* System generated locals */
-	int ret_val = 1, i__1;
-
-	/* Local variables */
-	int i;
-
-	i__1 = advs_1.alnt;
-	for (i = 1; i <= i__1; ++i) {
+	for (int i = 1; i <= advs_1.alnt; ++i) {
 		/* 						!LOOP THRU ACTORS. */
-		ret_val = i;
 		/* 						!ASSUME FOUND. */
 		if (advs_1.aobj[i - 1] == obj) {
-			return ret_val;
+			return i;
 		}
-		/* 						!FOUND IT? */
-		/* L100: */
+		/*!FOUND IT? */
 	}
 	bug_(40, obj);
-	/* 						!NO, DIE. */
-	return ret_val;
+	/*!NO, DIE. */
+	return 1;
 } /* oactor_ */
 
 /* PROB-		COMPUTE PROBABILITY */
@@ -486,7 +452,7 @@ L400:
 	/* 						!OUTPUT DESCRIPTION. */
 L500:
 	if (advs_1.avehic[play_1.winner - 1] != 0) {
-		rspsub_(431, objcts_1.odesc2[advs_1.avehic[play_1.winner - 1] -
+		rspeak_(431, objcts_1.odesc2[advs_1.avehic[play_1.winner - 1] -
 			1]);
 	}
 
@@ -516,27 +482,15 @@ L600:
 /* DECLARATIONS */
 
 int rappli_(int ri) {
-	/* Initialized data */
-
 	const int newrms = 38;
-
-	/* System generated locals */
-	int ret_val;
-
-
-	ret_val = TRUE_;
-	/* 						!ASSUME WINS. */
-	if (ri == 0) {
-		return ret_val;
+	if (ri >= newrms) {
+		return rappl2_(ri);
 	}
 	/* 						!IF ZERO, WIN. */
 	if (ri < newrms) {
-		ret_val = rappl1_(ri);
+		return rappl1_(ri);
 	}
 	/* 						!IF OLD, PROCESSOR 1. */
-	if (ri >= newrms) {
-		ret_val = rappl2_(ri);
-	}
 	/* 						!IF NEW, PROCESSOR 2. */
-	return ret_val;
+	return 1;
 } /* rappli_ */

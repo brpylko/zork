@@ -329,7 +329,7 @@ L800:
 		curxt_1.xstrng = 525;
 	}
 	/* 						!IF NO REASON, USE STD. */
-	rspsub_(curxt_1.xstrng, objcts_1.odesc2[curxt_1.xobj - 1]);
+	rspeak_(curxt_1.xstrng, objcts_1.odesc2[curxt_1.xobj - 1]);
 	prsvec_1.prscon = 1;
 	/* 						!STOP CMD STREAM. */
 	return ret_val;
