@@ -22,8 +22,6 @@
 #endif /* ! BSD4_2 */
 #endif /* NONBUSINESS */
 
-extern int getuid();
-
 int is_protected() {
 #ifndef NONBUSINESS
 
@@ -65,17 +63,7 @@ int is_protected() {
 #endif
 
 int wizard() {
-#ifdef __AMOS__
-	if (jobidx()->jobusr == 0x102)
-		return TRUE_;
-#else
-#ifdef unix
-	if (getuid() == 0 || getuid() == WIZARDID)
-		return TRUE_;
-#endif
-#endif
-
-	return TRUE_;
+	return true;
 }
 
 #endif

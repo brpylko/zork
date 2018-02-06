@@ -4,13 +4,12 @@
 /* ALL RIGHTS RESERVED, COMMERCIAL USAGE STRICTLY PROHIBITED */
 /* WRITTEN BY R. M. SUPNIK */
 
-#include <stdio.h>
+#include <cstdio>
+#include <cstring>
 #include "funcs.h"
 #include "vars.h"
 
 /* Do all systems have <string.h>?  Don't use it, just in case */
-
-extern int strcmp(const char *, const char *);
 
 static int xvehic_(int);
 static void xendmv_(int);

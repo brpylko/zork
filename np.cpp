@@ -5,13 +5,12 @@
 /* WRITTEN BY R. M. SUPNIK */
 
 #include <cstdio>
+#include <cstdlib>
 #include <ctype.h>
 #include "funcs.h"
 #include "vars.h"
 
 /* This declaration is here since many systems don't have <stdlib.h> */
-
-extern int system(const char *);
 
 static int lex_(char *, int *, int *, int);
 

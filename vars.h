@@ -12,7 +12,7 @@
 #ifndef VARS_H
 #define VARS_H
 
-extern struct {
+extern struct prsvec_t {
 	int prsa, prsi, prso;
 	int prswon;
 	int prscon;
@@ -20,27 +20,27 @@ extern struct {
 
 #define prsvec_1 prsvec_
 
-extern struct {
+extern struct orphs_t {
 	int oflag, oact, oslot, oprep, oname;
 } orphs_;
 
 #define orphs_1 orphs_
 #define orp ((int *)&orphs_1)
 
-extern struct {
+extern struct last_t {
 	int lastit;
 } last_;
 
 #define last_1 last_
 
-extern struct {
+extern struct play_t {
 	int winner, here;
 	int telflg;
 } play_;
 
 #define play_1 play_
 
-extern struct {
+extern struct rooms_t {
 	int rlnt, rdesc1[200], rdesc2[200], rexit[200], ractio[200],
 		rval[200], rflag[200];
 } rooms_;
@@ -64,7 +64,7 @@ extern struct {
 #define RNWALL (32)
 #define REND (16)
 
-extern const struct {
+extern const struct rindex_t {
 	int whous, lroom, cella, mtrol, maze1, mgrat, maz15, fore1, fore3,
 		clear, reser, strea, egypt, echor, tshaf, bshaf, mmach, dome,
 		mtorc, carou, riddl, lld2, temp1, temp2, maint, blroo, treas,
@@ -75,33 +75,18 @@ extern const struct {
 		mreye, mra, mrb, mrc, mrg, mrd, fdoor, mrae, mrce, mrcw, mrge,
 		mrgw, mrdw, inmir, scorr, ncorr, parap, cell, pcell, ncell, cpant,
 		cpout, cpuzz;
-} rindex_
-#ifdef INIT
-= {2, 8, 9, 10, 11, 25, 30, 31, 33, 36, 40, 42, 44, 49, 61, 76,
-77, 79, 80, 83, 91, 94, 96, 97, 100, 102, 103, 107, 108, 109,
-101, 112, 113, 114, 120, 119, 121, 122, 126, 127, 128, 129, 130,
-131, 132, 133, 135, 140, 141, 142, 143, 144, 145, 146, 147, 148,
-151, 153, 154, 155, 157, 158, 159, 160, 161, 162, 163, 164, 165,
-166, 167, 171, 172, 173, 174, 176, 177, 179, 182, 183, 184, 185,
-186, 188, 189, 190}
-#endif
-;
+} rindex_;
 
 #define rindex_1 rindex_
 
-extern const struct {
+extern const struct xsrch_t {
 	int xmin, xmax, xdown, xup, xnorth, xsouth, xenter, xexit, xeast,
 		xwest;
-} xsrch_
-#ifdef INIT
-= {1024, 16384, 10240, 9216, 1024, 5120, 13312, 14336, 3072,
-7168}
-#endif
-;
+} xsrch_;
 
 #define xsrch_1 xsrch_
 
-extern struct {
+extern struct objcts_t {
 	int olnt, odesc1[220], odesc2[220], odesco[220], oactio[220], oflag1[
 		220], oflag2[220], ofval[220], otval[220], osize[220], ocapac[220]
 			, oroom[220], oadv[220], ocan[220], oread[220];
@@ -110,7 +95,7 @@ extern struct {
 #define objcts_1 objcts_
 #define eqo ((int *)&objcts_1 + 1)
 
-extern struct {
+extern struct oroom2_t {
 	int r2lnt, oroom2[20], rroom2[20];
 } oroom2_;
 
@@ -151,7 +136,7 @@ extern struct {
 #define VEHBT (2)
 #define SCHBT (1)
 
-extern const struct {
+extern const struct oindex_t {
 	int garli, food, gunk, coal, machi, diamo, tcase, bottl, water, rope,
 		knife, sword, lamp, blamp, rug, leave, troll, axe, rknif, keys,
 		ice, bar, coffi, torch, tbask, fbask, irbox, ghost, trunk, bell,
@@ -165,23 +150,11 @@ extern const struct {
 		ylwal, rdwal, pindr, rbeam, odoor, qdoor, cdoor, num1, num8,
 		warni, cslit, gcard, stldr, hands, wall, lungs, sailo, aviat,
 		teeth, itobj, every, valua, oplay, wnort, gwate, master;
-} oindex_
-#ifdef INIT
-= {2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-20, 21, 23, 30, 26, 33, 34, 35, 36, 39, 42, 45, 46, 47, 48, 51,
-54, 55, 56, 57, 58, 59, 61, 62, 63, 65, 66, 71, 78, 79, 75, 85,
-86, 87, 88, 89, 90, 92, 94, 96, 98, 99, 97, 101, 102, 103, 105,
-107, 109, 110, 111, 112, 113, 119, 123, 124, 125, 126, 127, 132,
-133, 134, 137, 138, 139, 140, 141, 142, 145, 148, 149, 151, 152,
-154, 155, 156, 157, 158, 159, 161, 164, 171, 172, 173, 175, 178,
-185, 186, 187, 188, 189, 200, 198, 201, 196, 202, 197, 192, 194,
-195, 193, 205, 209, 215}
-#endif
-;
+} oindex_;
 
 #define oindex_1 oindex_
 
-extern struct {
+extern struct cevent_t {
 	int clnt, ctick[25], cactio[25];
 	int cflag[25];
 } cevent_;
@@ -189,20 +162,15 @@ extern struct {
 #define cevent_1 cevent_
 #define eqc ((int *)&cevent_1 + 1)
 
-extern const struct {
+extern const struct cindex_t {
 	int cevcur, cevmnt, cevlnt, cevmat, cevcnd, cevbal, cevbrn, cevfus,
 		cevled, cevsaf, cevvlg, cevgno, cevbuc, cevsph, cevegh, cevfor,
 		cevscl, cevzgi, cevzgo, cevste, cevmrs, cevpin, cevinq, cevfol;
-} cindex_
-#ifdef INIT
-= {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
-18, 19, 20, 21, 22, 23, 24}
-#endif
-;
+} cindex_;
 
 #define cindex_1 cindex_
 
-extern struct {
+extern struct advs_t {
 	int alnt, aroom[4], ascore[4], avehic[4], aobj[4], aactio[4], astren[
 		4], aflag[4];
 } advs_;
@@ -210,27 +178,19 @@ extern struct {
 #define advs_1 advs_
 #define eqa ((int *)&advs_1 + 1)
 
-extern const struct {
+extern const struct aflags_t {
 	int astag;
-} aflags_
-#ifdef INIT
-= {32768}
-#endif
-;
+} aflags_;
 
 #define aflags_1 aflags_
 
-extern const struct {
+extern const struct aindex_t {
 	int player, arobot, amastr;
-} aindex_
-#ifdef INIT
-= {1, 2, 3}
-#endif
-;
+} aindex_;
 
 #define aindex_1 aindex_
 
-extern const struct {
+extern const struct vindex_t{
 	int cintw, deadxw, frstqw, inxw, outxw, walkiw, fightw, foow, meltw,
 		readw, inflaw, deflaw, alarmw, exorcw, plugw, kickw, wavew,
 		raisew, lowerw, rubw, pushw, untiew, tiew, tieupw, turnw, breatw,
@@ -240,20 +200,11 @@ extern const struct {
 		putw, dropw, givew, pourw, throww, digw, leapw, stayw, follow,
 		hellow, lookiw, lookuw, pumpw, windw, clmbw, clmbuw, clmbdw,
 		trntow;
-} vindex_
-#ifdef INIT
-= {1, 2, 3, 4, 5, 6, 7, 8, 101, 100, 102, 103, 104, 105, 106,
-107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119,
-120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132,
-133, 134, 135, 136, 137, 138, 139, 141, 140, 142, 143, 144, 145,
-146, 147, 148, 89, 91, 73, 85, 151, 152, 153, 154, 155, 156, 157,
-158, 159}
-#endif
-;
+} vindex_;
 
 #define vindex_1 vindex_
 
-extern struct {
+extern struct findex_t {
 	int trollf, cagesf, bucktf, caroff, carozf, lwtidf, domef, glacrf,
 		echof, riddlf, lldf, cyclof, magicf, litldf, safef, gnomef,
 		gnodrf, mirrmf, egyptf, onpolf, blabf, brieff, superf, buoyf,
@@ -269,13 +220,13 @@ extern struct {
 #define flags ((int *)&findex_1)
 #define switch_ ((int *)&findex_1 + 46)
 
-extern struct {
+extern struct debug_t {
 	int dbgflg, prsflg, gdtflg;
 } debug_;
 
 #define debug_1 debug_
 
-extern struct {
+extern struct hack_t {
 	int thfpos;
 	int thfflg, thfact, swdact;
 	int swdsta;
@@ -283,130 +234,94 @@ extern struct {
 
 #define hack_1 hack_
 
-extern struct {
+extern struct vill_t {
 	int vlnt, villns[4], vprob[4], vopps[4], vbest[4], vmelee[4];
 } vill_;
 
 #define vill_1 vill_
 #define eqv ((int *)&vill_1 + 1)
 
-extern struct {
+extern struct state_t {
 	int moves, deaths, rwscor, mxscor, mxload, ltshft, bloc, mungrm, hs,
 		egscor, egmxsc;
 } state_;
 
 #define state_1 state_
 
-extern struct {
+extern struct curxt_t {
 	int xtype, xroom1, xstrng, xactio, xobj;
 } curxt_;
 
 #define curxt_1 curxt_
 #define xflag ((int *)&curxt_1 + 4)
 
-extern const struct {
+extern const struct xpars_t {
 	int xrmask, xdmask, xfmask, xfshft, xashft, xelnt[4], xnorm, xno,
 		xcond, xdoor, xlflag;
-} xpars_
-#ifdef INIT
-= {255, 31744, 3, 256, 256, {1, 2, 3, 3}, 1, 2, 3, 4, 32768}
-#endif
-;
+} xpars_;
 
 #define xpars_1 xpars_
 
-extern struct {
+extern struct star_t {
 	int mbase, strbit;
 } star_;
 
 #define star_1 star_
 
-extern struct {
+extern struct input_t {
 	int inlnt;
 	char inbuf[78];
 } input_;
 
 #define input_1 input_
 
-extern struct {
+extern struct screen_t {
 	int fromdr, scolrm, scolac;
 	const int scoldr[8], scolwl[12];
-} screen_
-#ifdef INIT
-= {0, 0, 0, {1024, 153, 5120, 154, 3072, 152, 7168, 151},
-{151, 207, 3072, 152, 208, 7168, 153, 206, 5120, 154, 205,
-1024}}
-#endif
-;
+} screen_;
 
 #define screen_1 screen_
 
-extern struct {
+extern struct rmsg_t {
 	int mlnt, mrloc, rtext[1050];
 } rmsg_;
 
 #define rmsg_1 rmsg_
 
-extern const struct {
+extern const struct vers_t {
 	int vmaj, vmin, vedit;
-} vers_
-#ifdef INIT
-= {2, 7, 'A'}
-#endif
-;
+} vers_;
 
 #define vers_1 vers_
 
-extern struct {
+extern struct struct_time_t {
 	int pltime, shour, smin, ssec;
 } time_;
 
 #define time_1 time_
 
-extern const struct {
+extern const struct hyper_t {
 	int hfactr;
-} hyper_
-#ifdef INIT
-= {500}
-#endif
-;
+} hyper_;
 
 #define hyper_1 hyper_
 
-extern struct {
+extern struct exits_t {
 	int xlnt, travel[900];
 } exits_;
 
 #define exits_1 exits_
 
-extern struct {
+extern struct puzzle_t {
 	const int cpdr[16], cpwl[8];
 	int cpvec[64];
-} puzzle_
-#ifdef INIT
-= {{1024, -8, 2048, -7, 3072, 1, 4096, 9, 5120, 8, 6144, 7,
-7168, -1, 8192, -9},
-{205, -8, 206, 8, 207, 1, 208, -1},
-{1, 1, 1, 1, 1, 1, 1, 1,
-1, 0, -1, 0, 0, -1, 0, 1,
-1, -1, 0, 1, 0, -2, 0, 1,
-1, 0, 0, 0, 0, 1, 0, 1,
-1, -3, 0, 0, -1, -1, 0, 1,
-1, 0, 0, -1, 0, 0, 0, 1,
-1, 1, 1, 0, 0, 0, 1, 1,
-1, 1, 1, 1, 1, 1, 1, 1}}
-#endif
-;
+} puzzle_;
 
 #define puzzle_1 puzzle_
 
-extern const struct {
+extern const struct bats_t {
 	const int batdrp[9];
-} bats_
-#ifdef INIT
-= {66, 67, 68, 69, 70, 71, 72, 65, 73}
-#endif
-;
+} bats_;
 
 #define bats_1 bats_
 

@@ -1,6 +1,7 @@
 /* supp.c -- support routines for dungeon */
 
-#include <stdio.h>
+#include <cstdio>
+#include <cstdlib>
 
 #ifdef unix
 #include <sys/types.h>
@@ -13,11 +14,6 @@
 #endif /* ! BSD4_2 */
 
 #include "funcs.h"
-
-/* Define these here to avoid using <stdlib.h> */
-
-extern void exit(int);
-extern int rand(void);
 
 /* We should have a definition for time_t and struct tm by now.  Make
  * sure we have definitions for the functions we want to call.
@@ -78,7 +74,7 @@ int rnd_(int maxval) {
   * If none of these are defined then this will use termcap routines on
   * unix and AMOS routines on AMOS.
   */
-
+#define MORE_TERMINFO
 #ifndef MORE_NONE
 #ifndef MORE_24
 #ifndef MORE_TERMCAP
@@ -109,7 +105,7 @@ extern int tgetnum(const char *);
 
 #ifdef MORE_TERMINFO
 
-#include <cursesX.h>
+#include <curses.h>
 #include <term.h>
 extern void setupterm(const char *, int, int);
 

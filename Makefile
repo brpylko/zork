@@ -59,13 +59,13 @@ CPP = g++
 CSRC =	actors.cpp ballop.cpp clockr.cpp demons.cpp dgame.cpp dinit.cpp dmain.cpp\
 	dso1.cpp dso2.cpp dso3.cpp dso4.cpp dso5.cpp dso6.cpp dso7.cpp dsub.cpp dverb1.cpp\
 	dverb2.cpp gdt.cpp lightp.cpp local.cpp nobjs.cpp np.cpp np1.cpp np2.cpp np3.cpp\
-	nrooms.cpp objcts.cpp rooms.cpp sobjs.cpp supp.cpp sverbs.cpp verbs.cpp villns.cpp
+	nrooms.cpp objcts.cpp rooms.cpp sobjs.cpp supp.cpp sverbs.cpp verbs.cpp villns.cpp vars.cpp parse.cpp
 
 # Object files
 OBJS =	actors.o ballop.o clockr.o demons.o dgame.o dinit.o dmain.o\
 	dso1.o dso2.o dso3.o dso4.o dso5.o dso6.o dso7.o dsub.o dverb1.o\
 	dverb2.o gdt.o lightp.o local.o nobjs.o np.o np1.o np2.o np3.o\
-	nrooms.o objcts.o rooms.o sobjs.o supp.o sverbs.o verbs.o villns.o
+	nrooms.o objcts.o rooms.o sobjs.o supp.o sverbs.o verbs.o villns.o vars.o parse.o
 
 default: dungeon
 

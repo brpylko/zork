@@ -29,16 +29,16 @@
 #define min(a,b) ((a) <= (b) ? (a) : (b))
 #define max(a,b) ((a) >= (b) ? (a) : (b))
 
-extern int
+int
 is_protected(),
 wizard();
 
-extern void
+void
 more_init(),
 more_output(const char *),
 more_input();
 
-extern void
+void
 bug_(int, int),
 cevapp_(int),
 cpgoto_(int),
@@ -67,7 +67,7 @@ scrupd_(int),
 swordd_(),
 thiefd_(),
 valuac_(int);
-extern int
+int
 blow_(int, int, int, int, int),
 fights_(int, int),
 fwim_(int, int, int, int, int, int),
@@ -81,7 +81,7 @@ robrm_(int, int, int, int, int),
 sparse_(const int *, int, int),
 vilstr_(int),
 weight_(int, int, int);
-extern int
+int
 aappli_(int),
 ballop_(int),
 clockd_(void),
