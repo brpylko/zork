@@ -62,24 +62,25 @@ static void rspsb2nl_(int n, int y, int z, int nl) {
 		return;
 	}
 	/* 						!ANYTHING TO DO? */
-	play_1.telflg = TRUE_;
+	play_1.telflg = true;
 	/* 						!SAID SOMETHING. */
 
 	x = ((-x) - 1) * 8;
 	if (fseek(dbfile, x + (long)rmsg_1.mrloc, SEEK_SET) == EOF) {
-		fprintf(stderr, "Error seeking database loc %d\n", x);
+		fprintf(stderr, "Error seeking database loc %ld\n", x);
 		exit_();
 	}
 
-	if (nl)
+	if (nl) {
 		more_output(NULL);
+	}
 
 	while (1) {
 		int i;
 
 		i = getc(dbfile);
 		if (i == EOF) {
-			fprintf(stderr, "Error reading database loc %d\n", x);
+			fprintf(stderr, "Error reading database loc %ld\n", x);
 			exit_();
 		}
 		i ^= zkey[x & 0xf] ^ (x & 0xff);
@@ -96,17 +97,19 @@ static void rspsb2nl_(int n, int y, int z, int nl) {
 			iloc = ftell(dbfile);
 			rspsb2nl_(y, 0, 0, 0);
 			if (fseek(dbfile, iloc, SEEK_SET) == EOF) {
-				fprintf(stderr, "Error seeking database loc %d\n", iloc);
+				fprintf(stderr, "Error seeking database loc %ld\n", iloc);
 				exit_();
 			}
 			y = z;
 			z = 0;
-		} else
+		} else {
 			putchar(i);
+		}
 	}
 
-	if (nl)
+	if (nl) {
 		putchar('\n');
+	}
 }
 
 /* OBJACT-- APPLY OBJECTS FROM PARSE VECTOR */
@@ -114,34 +117,21 @@ static void rspsb2nl_(int n, int y, int z, int nl) {
 /* DECLARATIONS */
 
 int objact_() {
-	/* System generated locals */
-	int ret_val;
-
-	ret_val = TRUE_;
 	/* 						!ASSUME WINS. */
 	if (prsvec_1.prsi == 0) {
-		goto L100;
+		if (prsvec_1.prso == 0) {
+			return false;
+		}
+		/* 						!DIR OBJECT? */
+		if (oappli_(objcts_1.oactio[prsvec_1.prso - 1], 0)) {
+			return true;
+		}
 	}
 	/* 						!IND OBJECT? */
 	if (oappli_(objcts_1.oactio[prsvec_1.prsi - 1], 0)) {
-		return ret_val;
+		return true;
 	}
-	/* 						!YES, LET IT HANDLE. */
-
-L100:
-	if (prsvec_1.prso == 0) {
-		goto L200;
-	}
-	/* 						!DIR OBJECT? */
-	if (oappli_(objcts_1.oactio[prsvec_1.prso - 1], 0)) {
-		return ret_val;
-	}
-	/* 						!YES, LET IT HANDLE. */
-
-L200:
-	ret_val = FALSE_;
-	/* 						!LOSES. */
-	return ret_val;
+	return false;
 } /* objact_ */
 
 /* BUG-- REPORT FATAL SYSTEM ERROR */
@@ -181,30 +171,17 @@ void newsta_(int o, int r, int rm, int cn, int ad) {
 /* DECLARATIONS */
 
 int qhere_(int obj, int rm) {
-	/* System generated locals */
-	int i__1;
-	int ret_val;
-
-	/* Local variables */
-	int i;
-
-	ret_val = TRUE_;
 	if (objcts_1.oroom[obj - 1] == rm) {
-		return ret_val;
+		return true;
 	}
-	/* 						!IN ROOM? */
-	i__1 = oroom2_1.r2lnt;
-	for (i = 1; i <= i__1; ++i) {
+	for (int i = 1; i <= oroom2_1.r2lnt; ++i) {
 		/* 						!NO, SCH ROOM2. */
 		if (oroom2_1.oroom2[i - 1] == obj && oroom2_1.rroom2[i - 1] == rm) {
-
-			return ret_val;
+			return true;
 		}
-		/* L100: */
 	}
-	ret_val = FALSE_;
 	/* 						!NOT PRESENT. */
-	return ret_val;
+	return false;
 } /* qhere_ */
 
 /* QEMPTY-- TEST FOR OBJECT EMPTY */
@@ -212,25 +189,14 @@ int qhere_(int obj, int rm) {
 /* DECLARATIONS */
 
 int qempty_(int obj) {
-	/* System generated locals */
-	int i__1;
-	int ret_val;
-
-	/* Local variables */
-	int i;
-
-	ret_val = FALSE_;
 	/* 						!ASSUME LOSE. */
-	i__1 = objcts_1.olnt;
-	for (i = 1; i <= i__1; ++i) {
+	for (int i = 1; i <= objcts_1.olnt; ++i) {
 		if (objcts_1.ocan[i - 1] == obj) {
-			return ret_val;
+			return false;
 		}
 		/* 						!INSIDE TARGET? */
-		/* L100: */
 	}
-	ret_val = TRUE_;
-	return ret_val;
+	return true;
 } /* qempty_ */
 
 /* JIGSUP- YOU ARE DEAD */
