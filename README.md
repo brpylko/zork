@@ -127,3 +127,7 @@ to change the format of the database file.  Andre Srinivasan
 (andre@cs.pitt.edu) help test it.  Jonathan Mark
 (uunet!microsoft!jonm) made it work under MS-DOS and Microsoft C.
 
+
+VII. C to C++ and Cleanup III (5-feb-18)
+
+Benjamin Pylko made it into valid C++. The cleanup is a work in progress.
