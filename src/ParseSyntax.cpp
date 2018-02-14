@@ -8,14 +8,14 @@
 #include "vars.hpp"
 #include "parse.hpp"
 
-static void unpack_(int, int *);
-static int gwim_(int, int, int);
-static int syneql_(int, int, int, int, int);
-static int takeit_(int, int);
+static void UnpackSyntax(int, int *);
+static int TakeAmbiguousObject(int, int, int);
+static int SyntaxEquality(int, int, int, int, int);
+static int TakeObject(int, int);
 
 /* THIS ROUTINE DETAILS ON BIT 4 OF PRSFLG */
 
-int synmch_() {
+int SyntaxMatch() {
 	/* Initialized data */
 
 /*   THE FOLLOWING DATA STATEMENT WAS ORIGINALLY: */
@@ -53,15 +53,15 @@ L100:
 	/* 						!ADVANCE TO NEXT. */
 
 L200:
-	unpack_(j, &newj);
+	UnpackSyntax(j, &newj);
 	/* 						!UNPACK SYNTAX. */
 	sprep = syntax_1.dobj & VPMASK;
-	if (!syneql_(pv_1.p1, pv_1.o1, syntax_1.dobj, syntax_1.dfl1,
+	if (!SyntaxEquality(pv_1.p1, pv_1.o1, syntax_1.dobj, syntax_1.dfl1,
 		syntax_1.dfl2)) {
 		goto L1000;
 	}
 	sprep = syntax_1.iobj & VPMASK;
-	if (syneql_(pv_1.p2, pv_1.o2, syntax_1.iobj, syntax_1.ifl1,
+	if (SyntaxEquality(pv_1.p2, pv_1.o2, syntax_1.iobj, syntax_1.ifl1,
 		syntax_1.ifl2)) {
 		goto L6000;
 	}
@@ -108,7 +108,7 @@ L3000:
 		goto L10000;
 	}
 	/* 						!ANY DRIVER? */
-	unpack_(drive, &dforce);
+	UnpackSyntax(drive, &dforce);
 	/* 						!UNPACK DFLT SYNTAX. */
 
 	/* TRY TO FILL DIRECT OBJECT SLOT IF THAT WAS THE PROBLEM. */
@@ -124,7 +124,7 @@ L3000:
 		goto L3500;
 	}
 	/* 						!ANY ORPHAN? */
-	if (syneql_(pv_1.p1, pv_1.o1, syntax_1.dobj, syntax_1.dfl1,
+	if (SyntaxEquality(pv_1.p1, pv_1.o1, syntax_1.dobj, syntax_1.dfl1,
 		syntax_1.dfl2)) {
 		goto L4000;
 	}
@@ -132,14 +132,14 @@ L3000:
 	/* ORPHAN FAILS, TRY GWIM. */
 
 L3500:
-	pv_1.o1 = gwim_(syntax_1.dobj, syntax_1.dfw1, syntax_1.dfw2);
+	pv_1.o1 = TakeAmbiguousObject(syntax_1.dobj, syntax_1.dfw1, syntax_1.dfw2);
 	/* 						!GET GWIM. */
 	if (pv_1.o1 > 0) {
 		goto L4000;
 	}
 	/* 						!TEST RESULT. */
 	i__1 = syntax_1.dobj & VPMASK;
-	orphan_(-1, pv_1.act, 0, i__1, 0);
+	SetNewOrphans(-1, pv_1.act, 0, i__1, 0);
 	rspeak_(623);
 	return ret_val;
 
@@ -149,7 +149,7 @@ L4000:
 	if ((syntax_1.vflag & SIND) == 0 || pv_1.o2 != 0) {
 		goto L6000;
 	}
-	pv_1.o2 = gwim_(syntax_1.iobj, syntax_1.ifw1, syntax_1.ifw2);
+	pv_1.o2 = TakeAmbiguousObject(syntax_1.iobj, syntax_1.ifw1, syntax_1.ifw2);
 	/* 						!GWIM. */
 	if (pv_1.o2 > 0) {
 		goto L6000;
@@ -158,7 +158,7 @@ L4000:
 		pv_1.o1 = orphs_1.oflag & orphs_1.oslot;
 	}
 	i__1 = syntax_1.dobj & VPMASK;
-	orphan_(-1, pv_1.act, pv_1.o1, i__1, 0);
+	SetNewOrphans(-1, pv_1.act, pv_1.o1, i__1, 0);
 	rspeak_(624);
 	return ret_val;
 
@@ -188,11 +188,11 @@ L5000:
 	/* 						!GET DIR OBJ. */
 	prsvec_1.prsi = pv_1.o2;
 	/* 						!GET IND OBJ. */
-	if (!takeit_(prsvec_1.prso, syntax_1.dobj)) {
+	if (!TakeObject(prsvec_1.prso, syntax_1.dobj)) {
 		return ret_val;
 	}
 	/* 						!TRY TAKE. */
-	if (!takeit_(prsvec_1.prsi, syntax_1.iobj)) {
+	if (!TakeObject(prsvec_1.prsi, syntax_1.iobj)) {
 		return ret_val;
 	}
 	/* 						!TRY TAKE. */
@@ -205,7 +205,7 @@ L5000:
 
 /* DECLARATIONS */
 
-static void unpack_(int oldj, int* j) {
+static void UnpackSyntax(int oldj, int* j) {
 	/* Local variables */
 	int i;
 
@@ -262,13 +262,13 @@ L200:
 	syntax_1.ifl1 = syntax_1.ifw1;
 	/* 						!YES. */
 	syntax_1.ifl2 = syntax_1.ifw2;
-} /* unpack_ */
+} /* UnpackSyntax */
 
 /* SYNEQL-	TEST FOR SYNTAX EQUALITY */
 
 /* DECLARATIONS */
 
-static int syneql_(int prep, int obj, int sprep, int sfl1, int sfl2) {
+static int SyntaxEquality(int prep, int obj, int sprep, int sfl1, int sfl2) {
 	/* System generated locals */
 	int ret_val;
 
@@ -284,13 +284,13 @@ L100:
 	ret_val = prep == 0 && sfl1 == 0 && sfl2 == 0;
 	return ret_val;
 
-} /* syneql_ */
+} /* SyntaxEquality */
 
 /* TAKEIT-	PARSER BASED TAKE OF OBJECT */
 
 /* DECLARATIONS */
 
-static int takeit_(int obj, int sflag) {
+static int TakeObject(int obj, int sflag) {
 	/* System generated locals */
 	int ret_val;
 
@@ -400,13 +400,13 @@ L4000:
 	/* 						!SUCCESS. */
 	return ret_val;
 
-} /* takeit_ */
+} /* TakeObject */
 
 /* GWIM- GET WHAT I MEAN IN AMBIGOUS SITUATIONS */
 
 /* DECLARATIONS */
 
-static int gwim_(int sflag, int sfw1, int sfw2) {
+static int TakeAmbiguousObject(int sflag, int sfw1, int sfw2) {
 	/* System generated locals */
 	int ret_val;
 
@@ -464,7 +464,7 @@ L300:
 		return ret_val;
 	}
 	/* 						!IF AMBIGUOUS, RETURN. */
-	if (!takeit_(robj, sflag)) {
+	if (!TakeObject(robj, sflag)) {
 		return ret_val;
 	}
 	/* 						!IF UNTAKEABLE, RETURN */
@@ -472,4 +472,4 @@ L300:
 L500:
 	return ret_val;
 
-} /* gwim_ */
+} /* TakeAmbiguousObject */

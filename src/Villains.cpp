@@ -194,6 +194,7 @@ L300:
 
 L350:
 	rspeak_(191);
+	return false;
 	/* 						!NOT THIRSTY. */
 L10:
 	ret_val = false;

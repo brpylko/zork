@@ -285,7 +285,7 @@ int sparse_(const int* lbuf, int llnt, int vbflag) {
 		if (pv_1.act == 0) {
 			pv_1.act = orphs_1.oflag & orphs_1.oact;
 		}
-		orphan_(-1, pv_1.act, pv_1.o1, prep, j);
+		SetNewOrphans(-1, pv_1.act, pv_1.o1, prep, j);
 		return ret_val;
 
 		/* 7000--	TOO MANY OBJECTS. */
@@ -364,7 +364,7 @@ L9000:
 		rspeak_(621, objcts_1.odesc2[pv_1.o1 - 1]);
 	}
 	/* 						!WHAT TO DO? */
-	orphan_(-1, 0, pv_1.o1, 0, 0);
+	SetNewOrphans(-1, 0, pv_1.o1, 0, 0);
 	return ret_val;
 
 	/* 10000--	TOTAL CHOMP */
@@ -400,7 +400,7 @@ L11500:
 	/* 		ORPHAN FOR LATER. */
 
 L12000:
-	orphan_(-1, pv_1.act, 0, prep, 0);
+	SetNewOrphans(-1, pv_1.act, 0, prep, 0);
 	/* 						!ORPHAN PREP. */
 	goto L1750;
 

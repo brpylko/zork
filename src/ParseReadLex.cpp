@@ -93,7 +93,7 @@ L200:
 		goto L350;
 	}
 	/* 						!ECHO MODE, FORCE FAIL. */
-	if (!synmch_()) {
+	if (!SyntaxMatch()) {
 		prsvec_1.prscon = 1;
 		return false;
 	}
@@ -107,7 +107,7 @@ L200:
 L300:
 	ret_val = true;
 L350:
-	orphan_(0, 0, 0, 0, 0);
+	SetNewOrphans(0, 0, 0, 0, 0);
 	/* 						!CLEAR ORPHANS. */
 	return ret_val;
 
@@ -117,14 +117,14 @@ L350:
 
 /* DECLARATIONS */
 
-void orphan_(int o1, int o2, int o3, int o4, int o5) {
+void SetNewOrphans(int o1, int o2, int o3, int o4, int o5) {
 	orphs_1.oflag = o1;
 	/* 						!SET UP NEW ORPHANS. */
 	orphs_1.oact = o2;
 	orphs_1.oslot = o3;
 	orphs_1.oprep = o4;
 	orphs_1.oname = o5;
-} /* orphan_ */
+} /* SetNewOrphans */
 
 /* LEX-	LEXICAL ANALYZER */
 
